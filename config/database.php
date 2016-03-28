@@ -70,11 +70,12 @@ return [
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => 'ec2-54-243-239-181.compute-1.amazonaws.com',
-            'port' => '5432',
-            'database' => 'd1gvnq66ufk4cr',
-            'username' => 'migzcrmvneqqjj',
-            'password' => 'gmdTkuHZvrCYsWLKuu9XLH8NkU',
+            
+            'host' => env('DB_HOST', 'localhost'),
+            'port' => env('DB_PORT', '54320'),
+            'database' => env('DB_DATABASE', 'cronic'),
+            'username' => env('DB_USERNAME', 'homestead'),
+            'password' => env('DB_PASSWORD', 'secret'),
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
