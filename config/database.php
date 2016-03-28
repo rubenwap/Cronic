@@ -52,7 +52,7 @@ return [
             'prefix' => '',
         ],
 
-/*
+
         'mysql' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', 'localhost'),
@@ -66,11 +66,10 @@ return [
             'strict' => false,
             'engine' => null,
         ],
-        */
+
 
         'pgsql' => [
             'driver' => 'pgsql',
-            
             'host' => env('DB_HOST', 'localhost'),
             'port' => env('DB_PORT', '54320'),
             'database' => env('DB_DATABASE', 'cronic'),
