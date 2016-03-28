@@ -52,6 +52,7 @@ return [
             'prefix' => '',
         ],
 
+/*
         'mysql' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', 'localhost'),
@@ -65,14 +66,15 @@ return [
             'strict' => false,
             'engine' => null,
         ],
+        */
 
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => env('DB_HOST', 'ec2-54-243-239-181.compute-1.amazonaws.com'),
-            'port' => env('DB_PORT', '5432'),
-            'database' => env('DB_DATABASE', 'd1gvnq66ufk4cr'),
-            'username' => env('DB_USERNAME', 'migzcrmvneqqjj'),
-            'password' => env('DB_PASSWORD', 'gmdTkuHZvrCYsWLKuu9XLH8NkU'),
+            'host' => 'ec2-54-243-239-181.compute-1.amazonaws.com',
+            'port' => '5432',
+            'database' => 'd1gvnq66ufk4cr',
+            'username' => 'migzcrmvneqqjj',
+            'password' => 'gmdTkuHZvrCYsWLKuu9XLH8NkU',
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
