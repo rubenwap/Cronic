@@ -119,7 +119,13 @@
   <div class="form-group">
   {!!Form::number('feeling', '1', ['class'=>'form-control', 'id' => 'f'])!!}
   </div>
-<h4>(Need to implement Select box for structured data)</h4>
+
+  <div class="form-group">
+  {!!Form::label('doctor', 'Share with your doctor')!!}
+{{ Form::checkbox('doctor', '1', null, ['class' => 'checkbox']) }}
+    </div>
+
+
       <div class="form-group">
        {!!Form::submit('Save Entry',  ['class'=>'btn btn-primary form-control'])!!}
 

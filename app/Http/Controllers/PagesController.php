@@ -25,7 +25,7 @@ return view('pages.create');
         //  $input['published_at'] = Carbon::now();
       //$input = Request::all();
       Article::create(Request::all());
-      return redirect('view');
+      return redirect('home');
   }
 
   public function view()  {
@@ -41,7 +41,11 @@ $articles = Article::latest()->Paginate(5);
   }
 
   public function progress(){
-  return view('pages.progress');
+
+    $articles = Article::where('created_at', '>=', Carbon::now()->startOfMonth())->get();
+  return view('pages.progress', compact('articles'));
+
+
   }
 
   public function show($id) {

@@ -102,30 +102,33 @@ $(function () {
             type: 'line'
         },
         title: {
-            text: 'How have you been'
+            text: ''
+        },
+        subtitle: {
+            text: ''
         },
         xAxis: {
-            categories: ['Apples', 'Bananas', 'Oranges']
+            categories: dates
         },
         yAxis: {
             title: {
-                text: 'Feeling'
+                text: 'Pain scale'
+            }
+        },
+        plotOptions: {
+            line: {
+                dataLabels: {
+                    enabled: true
+                },
+                enableMouseTracking: false
             }
         },
         series: [{
-            name: 'Jane',
-            data: [1, 0, 4]
-        }, {
-            name: 'John',
-            data: [5, 7, 3]
+            name: document.getElementsByClassName("dropdown-toggle")[0].text.trim(),
+            data: pains
         }]
     });
 });
-
-
-
-
-
 
 
 });

@@ -16,6 +16,7 @@
 	<div class="body">{{$article->body}}</div>
 
 
+  <span class="hiddenFeeling" ><span class="textFeeling">{{$article->feeling}}</span></span>
 
 
 

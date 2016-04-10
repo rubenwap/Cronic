@@ -16,9 +16,8 @@
         <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
     <!-- Styles -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-<link href="css/stylish-portfolio.css" rel="stylesheet">
     {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
-
+    <link href="/css/stylish-portfolio.css" rel="stylesheet">
     <style>
         body {
             font-family: 'Lato';
@@ -153,7 +152,7 @@ margin-top: 2em;
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="js/app.js"></script>
+    <script src="/js/app.js"></script>
       <script src="http://code.highcharts.com/highcharts.js"></script>
 
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
