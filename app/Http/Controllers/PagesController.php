@@ -5,6 +5,7 @@ use DB;
 use Request;
 //use Illuminate\Http\Request;
 use App\Article;
+use App\Event;
 use App\Http\Requests;
 use Carbon\Carbon;
 use App\User;
@@ -40,6 +41,14 @@ $articles = Article::latest()->Paginate(5);
   return view('pages.schedule');
   }
 
+  public function saveevent(Requests\CreateEventRequest $event) {
+
+    Event::create(Request::all());
+    return redirect('schedule');
+
+
+  }
+
   public function progress(){
 
     $articles = Article::where('created_at', '>=', Carbon::now()->startOfMonth())->get();
@@ -52,11 +61,10 @@ $articles = Article::latest()->Paginate(5);
 
     $article = Article::findOrFail($id);
 
-
-
-
     return view('pages.show', compact('article'));
   }
+
+
 
     //
 }

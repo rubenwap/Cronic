@@ -11,6 +11,10 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' href='css/fullcalendar.css' />
+    <link rel='stylesheet' href='css/jquery.datetimepicker.css' />
+
+
 
         <!-- Custom Fonts -->
         <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
@@ -148,12 +152,16 @@ margin-top: 2em;
 
   </body>
 
-  </html>
+    </html>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="/js/app.js"></script>
-      <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src='js/lib/moment.min.js'></script>
+    <script src='js/fullcalendar.js'></script>
+    <script src='js/jquery.datetimepicker.full.min.js'></script>
+    <script src="js/app.js"></script>
+
 
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>

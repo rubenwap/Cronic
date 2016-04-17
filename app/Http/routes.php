@@ -38,6 +38,8 @@ Route::group(['middleware' => 'web'], function () {
   Route::get('/view/{id}', 'PagesController@show');
   Route::post('/view', 'PagesController@store');
     Route::get('/schedule', 'PagesController@schedule');
+    Route::post('/schedule', 'PagesController@saveevent');
+
     Route::get('/progress', 'PagesController@progress');
 
 });
