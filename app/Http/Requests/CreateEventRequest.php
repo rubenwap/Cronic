@@ -28,7 +28,8 @@ class CreateEventRequest extends Request
         return [
 
           'title' => 'required',
-          'when' => 'required'
+          'start' => 'required',
+          'end' => 'required'
 
         //  'published_at' => 'required'
             //

@@ -24,6 +24,13 @@
 
 <a href="{{ url('/create') }}"><button type="button" class="btn btn-primary">Add Entry</button></a>
               <h2>Latest:</h2>
+
+              @if(Session::has('message')) <div class="alert alert-success"> {{Session::get('message')}} </div> @endif
+
+
+
+
+
                 @foreach($articles as $article)
                 <article>
                   <div class="container-fluid">

@@ -42,4 +42,6 @@ Route::group(['middleware' => 'web'], function () {
 
     Route::get('/progress', 'PagesController@progress');
 
+    Route::get('/calfeed', 'PagesController@calfeed');
+
 });

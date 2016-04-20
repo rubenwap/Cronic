@@ -133,8 +133,10 @@ $(document).ready(function() {
     }
 
 if ($('#calendar')) {
+
   $('#calendar').fullCalendar({
         // put your options and callbacks here
+        events: 'calfeed',
         header: {
         left: 'prev,next today',
         center: 'title',
@@ -148,12 +150,6 @@ if ($('#calendar')) {
     })
 
     jQuery('.timepicker').datetimepicker();
-
-
-
-
-
-
 
 
 }

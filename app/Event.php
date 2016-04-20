@@ -8,6 +8,6 @@ class Event extends Model
 {
     //
     protected $fillable = [
-        'title', 'when'
+        'title', 'start','end'
     ];
 }

@@ -26,7 +26,7 @@ return view('pages.create');
         //  $input['published_at'] = Carbon::now();
       //$input = Request::all();
       Article::create(Request::all());
-      return redirect('home');
+      return redirect('home')->with('message', 'Entry correctly saved!');
   }
 
   public function view()  {
@@ -44,9 +44,13 @@ $articles = Article::latest()->Paginate(5);
   public function saveevent(Requests\CreateEventRequest $event) {
 
     Event::create(Request::all());
-    return redirect('schedule');
+    return redirect('schedule')->with('message', 'Event correctly saved!');
 
+  }
 
+  public function calfeed() {
+    $calfeed = Event::all(['id', 'title', 'start', 'end']);
+    return $calfeed->toJson();
   }
 
   public function progress(){
