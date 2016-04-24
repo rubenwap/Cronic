@@ -30,7 +30,7 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner" role="listbox">
       <div class="item active" id="1">
-        <img src="img/ps1.jpg" alt="no pain" width="160" height="120">
+        <img src="{{URL::to('images/ps1.jpg')}}" alt="no pain" width="160" height="120">
         <div class="carousel-caption">
       <h3>NO PAIN</h3>
 
@@ -38,7 +38,7 @@
       </div>
 
       <div class="item" id="2">
-        <img src="img/ps2.jpg" alt="hurts a bit" width="160" height="120">
+        <img src="{{URL::to('images/ps2.jpg')}}" alt="hurts a bit" width="160" height="120">
         <div class="carousel-caption">
       <h3>HURTS A BIT</h3>
 
@@ -46,7 +46,7 @@
       </div>
 
       <div class="item" id="3">
-        <img src="img/ps3.jpg" alt="hurts a little more" width="160" height="120">
+        <img src="{{URL::to('images/ps3.jpg')}}" alt="hurts a little more" width="160" height="120">
         <div class="carousel-caption">
       <h3>HURTS A LITTLE MORE</h3>
 
@@ -55,7 +55,7 @@
 
 
       <div class="item" id="4">
-        <img src="img/ps4.jpg" alt="hurts even more" width="160" height="120">
+        <img src="{{URL::to('images/ps4.jpg')}}" alt="hurts even more" width="160" height="120">
         <div class="carousel-caption">
       <h3>HURTS EVEN MORE</h3>
 
@@ -63,7 +63,7 @@
       </div>
 
       <div class="item" id="5">
-        <img src="img/ps5.jpg" alt="hurts a lot" width="160" height="120">
+        <img src="{{URL::to('images/ps5.jpg')}}" alt="hurts a lot" width="160" height="120">
 
         <div class="carousel-caption">
       <h3>HURTS A LOT</h3>
@@ -72,7 +72,7 @@
       </div>
 
       <div class="item" id="6">
-        <img src="img/ps6.jpg" alt="unbearable pain" width="160" height="120">
+        <img src="{{URL::to('images/ps6.jpg')}}" alt="unbearable pain" width="160" height="120">
         <div class="carousel-caption">
       <h3>UNBEARABLE PAIN</h3>
 

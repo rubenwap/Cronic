@@ -11,14 +11,12 @@
               <div class="panel panel-default">
                   <div class="panel-heading">{{$article->title}}
 
-<a href="{{action('PagesController@edit', [$article->id])}}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
-
                   </div>
 
                   <div class="panel-body">
 
 	<div class="body">{{$article->body}}</div>
-
+  @include('articles.crud')
 
   <span class="hiddenFeeling" ><span class="textFeeling">{{$article->feeling}}</span></span>
 

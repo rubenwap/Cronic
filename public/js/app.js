@@ -2,43 +2,34 @@ $(document).ready(function() {
 
     $('#myCarousel').on('slide.bs.carousel', function(ev) {
         var id = ev.relatedTarget.id;
+
+//This gives numerical values to the pain according to the chose graph
+// f is the id for the hidden text field in the form
         switch (id) {
             case "1":
                 $('#f').val(1);
-                // do something the id is 1
                 break;
             case "2":
                 $('#f').val(2);
-                // do something the id is 1
-                // do something the id is 2
                 break;
             case "3":
                 $('#f').val(3);
-                // do something the id is 1
-
-                // do something the id is 3
                 break;
             case "4":
-                // do something the id is 3
                 $('#f').val(4);
-                // do something the id is 1
                 break;
             case "5":
-                // do something the id is 3
                 $('#f').val(5);
-                // do something the id is 1
                 break;
             case "6":
-                // do something the id is 3
                 $('#f').val(6);
-                // do something the id is 1
                 break;
-                //the id is none of the above
+
         }
     })
 
-
-
+// The following populates the faces in the view article mode
+// TODO replace with divs in the blade Page
 
     for (var i = 0; i <= $('.hiddenFeeling').length; i++) {
 
@@ -46,22 +37,22 @@ $(document).ready(function() {
 
         switch (imgFeeling) {
             case "1":
-                $('.hiddenFeeling').eq(i).append('<img src="/img/ps1.jpg" class="imgIndex" width="80" height="60"/>');
+                $('.hiddenFeeling').eq(i).append('<img src="../images/ps1.jpg" class="imgIndex" width="80" height="60"/>');
                 break;
             case "2":
-                $('.hiddenFeeling').eq(i).append('<img src="/img/ps2.jpg" class="imgIndex" width="80" height="60"/>');
+                $('.hiddenFeeling').eq(i).append('<img src="../images/ps2.jpg" class="imgIndex" width="80" height="60"/>');
                 break;
             case "3":
-                $('.hiddenFeeling').eq(i).append('<img src="/img/ps3.jpg" class="imgIndex" width="80" height="60"/>');
+                $('.hiddenFeeling').eq(i).append('<img src="../images/ps3.jpg" class="imgIndex" width="80" height="60"/>');
                 break;
             case "4":
-                $('.hiddenFeeling').eq(i).append('<img src="/img/ps4.jpg" class="imgIndex" width="80" height="60"/>');
+                $('.hiddenFeeling').eq(i).append('<img src="../images/ps4.jpg" class="imgIndex" width="80" height="60"/>');
                 break;
             case "5":
-                $('.hiddenFeeling').eq(i).append('<img src="/img/ps5.jpg" class="imgIndex" width="80" height="60"/>');
+                $('.hiddenFeeling').eq(i).append('<img src="../images/ps5.jpg" class="imgIndex" width="80" height="60"/>');
                 break;
             case "6":
-                $('.hiddenFeeling').eq(i).append('<img src="/img/ps6.jpg" class="imgIndex" width="80" height="60"/>');
+                $('.hiddenFeeling').eq(i).append('<img src="../images/ps6.jpg" class="imgIndex" width="80" height="60"/>');
                 break;
 
 
@@ -69,31 +60,8 @@ $(document).ready(function() {
 
     }
 
-    for (var i = 0; i <= $('.indexFeeling').length; i++) {
 
-        var indexf = $('.indexFeeling').eq(i).text();
 
-        switch (indexf) {
-            case "1":
-                $('.indexFeeling').eq(i).text('No pain');
-                break;
-            case "2":
-                $('.indexFeeling').eq(i).text('Hurts a bit');
-                break;
-            case "3":
-                $('.indexFeeling').eq(i).text('Hurts a little more');
-                break;
-            case "4":
-                $('.indexFeeling').eq(i).text('Hurts even more');
-                break;
-            case "5":
-                $('.indexFeeling').eq(i).text('Hurts a lot');
-                break;
-            case "6":
-                $('.indexFeeling').eq(i).text('Unbearable pain');
-                break;
-        }
-    }
 
     if (typeof dates !== 'undefined') {
 
@@ -142,6 +110,7 @@ if ($('#calendar')) {
         center: 'title',
         right: 'month,agendaWeek,agendaDay'
     },
+
 
     firstDay: 1,
 

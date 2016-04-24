@@ -24,6 +24,9 @@
   <td><a href="{{action('PagesController@show', [$article->id])}}">{{$article->created_at->format('d-m-y')}} </a></td>
   <td><a href="{{action('PagesController@show', [$article->id])}}">{{$article->title}}</a></td>
 
+<td><a href="{{action('PagesController@edit', [$article->id])}}"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></a>
+</td>
+
 
 </tr>
 
