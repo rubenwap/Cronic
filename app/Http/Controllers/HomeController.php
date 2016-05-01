@@ -5,6 +5,7 @@ use DB;
 use Request;
 //use Illuminate\Http\Request;
 use App\Article;
+use App\Event;
 use App\Http\Requests;
 use Carbon\Carbon;
 use App\User;
@@ -32,6 +33,24 @@ class HomeController extends Controller
 
 
         return view('home', compact('articles'));
-        
+
     }
+
+    public function calfeed() {
+      $calfeed = Event::all(['id', 'title', 'start', 'end']);
+      return $calfeed->toJson();
+    }
+
+    public function progress(){
+
+      $articles = Article::where('created_at', '>=', Carbon::now()->startOfMonth())->get();
+    return view('pages.progress', compact('articles'));
+
+
+    }
+
+
+
+
+
 }

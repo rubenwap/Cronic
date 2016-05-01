@@ -31,20 +31,11 @@ Route::group(['middleware' => 'web'], function () {
       return view('welcome');
   });
 
-
-
-
     Route::auth();
     Route::get('/home', 'HomeController@index');
-//  Route::get('articles/create', 'PagesController@create');
-//  Route::get('articles', 'PagesController@index');
-//  Route::get('/articles/{id}', 'PagesController@show');
-//  Route::post('/articles', 'PagesController@store');
-Route::resource('articles', 'PagesController');
-
-    Route::get('/schedule', 'PagesController@schedule');
-    Route::post('/schedule', 'PagesController@saveevent');
-    Route::get('/progress', 'PagesController@progress');
-    Route::get('/calfeed', 'PagesController@calfeed');
+    Route::resource('articles', 'PagesController');
+    Route::resource('events', 'EventsController');
+    Route::get('/progress', 'HomeController@progress');
+    Route::get('/calfeed', 'HomeController@calfeed');
 
 });

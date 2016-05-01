@@ -104,7 +104,7 @@ if ($('#calendar')) {
 
   $('#calendar').fullCalendar({
         // put your options and callbacks here
-        events: 'calfeed',
+        events: '../calfeed',
         header: {
         left: 'prev,next today',
         center: 'title',
@@ -114,7 +114,7 @@ if ($('#calendar')) {
 
     firstDay: 1,
 
-    defaultView: 'agendaDay'
+    defaultView: 'month'
 
     })
 

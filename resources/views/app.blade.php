@@ -15,8 +15,6 @@
     <link rel='stylesheet' href='{{ URL::to('css/fullcalendar.css') }}' />
     <link rel='stylesheet' href='{{ URL::to('css/jquery.datetimepicker.css')}}' />
 
-
-
         <!-- Custom Fonts -->
         <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
     <!-- Styles -->
@@ -116,7 +114,7 @@ margin-top: 2em;
                     <li><a href="{{ url('/home') }}">Home</a></li>
                     <li><a href="{{ url('/articles') }}">View Entries</a></li>
                     <li><a href="{{ url('/articles/create') }}">Add Entry</a></li>
-                    <li><a href="{{ url('/schedule') }}">Schedule</a></li>
+                    <li><a href="{{ url('/events') }}">Schedule</a></li>
                     <li><a href="{{ url('/progress') }}">Progression</a></li>
                 </ul>
 

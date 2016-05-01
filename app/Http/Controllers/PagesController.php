@@ -69,36 +69,5 @@ public function destroy($id)
     }
 
 
-
-
-
-
-  public function schedule(){
-  return view('articles.schedule');
-  }
-
-  public function saveevent(Requests\CreateEventRequest $event) {
-
-    Event::create(Request::all());
-    return redirect('schedule')->with('message', 'Event correctly saved!');
-
-  }
-
-  public function calfeed() {
-    $calfeed = Event::all(['id', 'title', 'start', 'end']);
-    return $calfeed->toJson();
-  }
-
-  public function progress(){
-
-    $articles = Article::where('created_at', '>=', Carbon::now()->startOfMonth())->get();
-  return view('articles.progress', compact('articles'));
-
-
-  }
-
-
-
-
     //
 }
