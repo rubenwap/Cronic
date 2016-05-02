@@ -7,8 +7,8 @@
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
                     <div class="panel-heading">Scheduler</div>
-
                     <div class="panel-body">
+                      @if(Session::has('message')) <div class="alert alert-success"> {{Session::get('message')}} </div> @endif
 
 
                       <h2>Your events <a href="{{ url('/events/create') }}"><button type="button" class="btn btn-primary">Add New</button></a>
@@ -27,8 +27,12 @@
                     <td><a href="{{action('EventsController@show', [$event->id])}}">{{$event->title}}</a></td>
                     <td>
 
+                      @include('events.crud')
 
                     </td>
+
+
+
 
                     </tr>
 

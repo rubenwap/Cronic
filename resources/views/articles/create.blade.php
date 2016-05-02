@@ -16,7 +16,7 @@
 
   <h2>{!! Auth::user()->name !!}, how do you feel?</h2>
 
-  {!!Form::open(['url' => 'index'])!!}
+  {!!Form::open(['url' => 'articles'])!!}
 
 @include('articles.form', ['submitBtn' => 'Save Entry'])
   {!!Form::close()!!}

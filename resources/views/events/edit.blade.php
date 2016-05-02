@@ -6,16 +6,15 @@
         <div class="row">
             <div class="col-md-10 col-md-offset-1">
                 <div class="panel panel-default">
-                  @if(Session::has('message')) <div class="alert alert-success"> {{Session::get('message')}} </div> @endif
-
                     <div class="panel-heading">Scheduler</div>
 
                     <div class="panel-body">
 
 
-                      <h2>Schedule something</h2>
-                      {!!Form::open(['url' => 'events'])!!}
-                      @include('events.form', ['submitBtn' => 'Save Event'])
+                      <h2>Edit your event</h2>
+                      {!!Form::model($event,['method'=> 'PATCH', 'action' => ['EventsController@update', $event->id]])!!}
+
+                      @include('events.form', ['submitBtn' => 'Modify Event'])
 
 
                         {!!Form::close()!!}

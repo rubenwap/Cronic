@@ -18,10 +18,10 @@ class PagesController extends Controller
   public function index()  {
 
 $articles = Article::latest()->Paginate(5);
-
-
   return view('articles.index', compact('articles'));
+
   }
+
 
   public function show($id) {
 
@@ -37,11 +37,8 @@ return view('articles.create');
 
   public function store(Requests\EntryRequest $request) {
 
-    //  $input = Request::all();
-        //  $input['published_at'] = Carbon::now();
-      //$input = Request::all();
-      Article::create(Request::all());
-      return redirect('home')->with('message', 'Entry successfully saved!');
+    Article::create(Request::all());
+    return redirect('home')->with('message', 'Entry successfully saved!');
   }
 
 

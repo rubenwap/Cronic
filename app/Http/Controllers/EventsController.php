@@ -17,33 +17,34 @@ class EventsController extends Controller
 
 
 
+//OK
   public function show($id) {
-
     $event = Event::findOrFail($id);
-
     return view('events.show', compact('event'));
   }
+//OK
 
+
+//OK
   public function create(){
   $events = Event::latest();
-return view('events.create', compact('events'));
+  return view('events.create', compact('events'));
 
   }
-
+//OK
 
 
 public function edit($id) {
   $event = Event::findOrFail($id);
-
   return view('events.edit', compact('event'));
 }
 
 
-public function update($id, Requests\EntryRequest $request) {
+public function update($id, Requests\EventRequest $request) {
   $event = Event::findOrFail($id);
 
   $event->update(Request::all());
-  return redirect('events');
+  return redirect('events')->with('message', 'Entry successfully modified!');
 }
 
 public function destroy($id)
@@ -54,22 +55,22 @@ public function destroy($id)
     }
 
 
-  public function index(){
-    $events = Event::latest()->Paginate(5);
+
+//ok
+public function index()  {
+
+$events = Event::latest()->Paginate(5);
+return view('events.index', compact('events'));
+
+}
+//ok
 
 
-      return view('events.index', compact('events'));
-  }
+public function store(Requests\EventRequest $request) {
 
-  public function store(Requests\EventRequest $event) {
-
-    Event::create(Request::all());
-    return redirect('schedule')->with('message', 'Event correctly saved!');
-
-  }
-
-
-
+  $events = Event::create(Request::all());
+  return redirect()->route('events.index')->with('message', 'Event successfully created!');
+}
 
 
 
