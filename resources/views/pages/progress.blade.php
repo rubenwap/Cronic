@@ -13,6 +13,7 @@
 
                   <div class="panel-body">
 
+
 @foreach($articles as $article)
 <span class="feelid" style="display:none;">{{$article->feeling}}</span>
 <span class="feeldate" style="display:none;">{{$article->created_at}}</span>

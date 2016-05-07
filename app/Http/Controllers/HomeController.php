@@ -9,6 +9,7 @@ use App\Event;
 use App\Http\Requests;
 use Carbon\Carbon;
 use App\User;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -30,9 +31,11 @@ class HomeController extends Controller
     public function index()
     {
       $articles = Article::latest()->take(1)->get();
+      $oneWeek = Carbon::now()->subWeek();
+      $events = Event::whereBetween('start', [Carbon::now(),Carbon::now()->addDays(7) ])->get();
+      $articlesPain = Article::where('created_at', '>=', Carbon::now()->startOfMonth())->get();
 
-
-        return view('home', compact('articles'));
+        return view('home', compact(['articles','events','articlesPain']));
 
     }
 
@@ -49,7 +52,18 @@ class HomeController extends Controller
 
     }
 
+public function settings() {
+$name = Auth::user()->name;
+$surname = Auth::user()->surname;
 
+
+
+
+
+
+return view('pages.settings',compact(['name','surname']));
+
+}
 
 
 

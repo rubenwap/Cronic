@@ -65,6 +65,9 @@ $(document).ready(function() {
 
     if (typeof dates !== 'undefined') {
 
+
+
+
         $(function() {
             $('#mainChart').highcharts({
                 chart: {

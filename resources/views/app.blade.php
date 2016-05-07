@@ -71,12 +71,11 @@ margin-top: 2em;
   display:none;
 }
 
-.indexEntries {
+.indexEntries{
   border: solid 1px;
-  border-color: #5E5E5E;
-  margin: 1em;
-  border-radius: 10px;
-  width: auto;
+  border-color: grey;
+
+    width: auto;
 }
 
 .imgIndex {
@@ -133,7 +132,7 @@ margin-top: 2em;
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-cog"></i>Settings</a></li>
+                            <li><a href="{{ url('/settings') }}"><i class="fa fa-btn fa-cog"></i>Settings</a></li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>

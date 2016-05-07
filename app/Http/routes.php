@@ -31,11 +31,18 @@ Route::group(['middleware' => 'web'], function () {
       return view('welcome');
   });
 
-    Route::auth();
-    Route::get('/home', 'HomeController@index');
-    Route::resource('articles', 'PagesController');
-    Route::resource('events', 'EventsController');
-    Route::get('/progress', 'HomeController@progress');
-    Route::get('/calfeed', 'HomeController@calfeed');
+Route::auth();
+
+Route::group(['middleware' => 'auth'],function(){
+  
+  Route::get('/home', 'HomeController@index');
+  Route::resource('articles', 'PagesController');
+  Route::resource('events', 'EventsController');
+  Route::get('/progress', 'HomeController@progress');
+  Route::get('/calfeed', 'HomeController@calfeed');
+  Route::get('/settings', 'HomeController@settings');
+
+});
+
 
 });

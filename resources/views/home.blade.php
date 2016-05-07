@@ -20,10 +20,33 @@
 
                 <div class="panel-body">
 
+                  @foreach($articlesPain as $article)
+                  <span class="feelid" style="display:none;">{{$article->feeling}}</span>
+                  <span class="feeldate" style="display:none;">{{$article->created_at}}</span>
+
+                      @endforeach
+                  <script>
+                  var pains = [];
+                  var dates = [];
+                  var painid = document.getElementsByClassName("feelid");
+                  for(var i = 0; i < painid.length; i++) {
+                  pains.push(parseInt(document.getElementsByClassName("feelid")[i].innerText));
+                  dates.push(document.getElementsByClassName("feeldate")[i].innerText);
+                  }
+
+                  </script>
 
 
-<a href="{{ url('/articles/create') }}"><button type="button" class="btn btn-primary">Add Entry</button></a>
-              <h2>Latest:</h2>
+
+
+
+
+<a href="{{ url('/articles/create') }}"><button type="button" class="btn btn-primary">  <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+ Add Entry</button></a>
+<a href="{{ url('/events/create') }}"><button type="button" class="btn btn-primary">  <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+ Add Event</button></a>
+
+              <h2>Latest entry:</h2>
 
               @if(Session::has('message')) <div class="alert alert-success"> {{Session::get('message')}} </div> @endif
 
@@ -45,7 +68,7 @@
                     <p>{{str_limit($article->body,100)}}</p>
                 </div>
                      <div class="col-md-6">
-                    <span class="hiddenFeeling" ><span class="textFeeling">{{$article->feeling}}</span></span>
+                    <span class="hiddenFeeling pull-right" ><span class="textFeeling">{{$article->feeling}}</span></span>
 </a>
                 </div>
 
@@ -56,13 +79,20 @@
 
                 @endforeach
 
-  <h2>Progress:</h2>
-  Not implemented yet (link to latest chart)<br>
-  <img src="http://placehold.it/350x150">
+<div class="col-md-6">
 
-    <h2>Reminders:</h2>
-    Not implemented yet (link to latest reminders)
+  <h2>Pain Progress:</h2>
+<a href="{{ url('/progress') }}"><div id="mainChart" style="width:100%; height:400px;"></div></a>
+</div><div class="col-md-6">
+    <h2>Your reminders for the next 7 days:</h2>
+<ul>
+    @foreach($events as $event)
+<li><a href="{{action('EventsController@show', [$event->id])}}">{{$event->title}}, starting on {{$event->start}}</a></li>
 
+
+    @endforeach
+  </ul>
+</div>
                 </div>
             </div>
         </div>
