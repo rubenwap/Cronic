@@ -1,10 +1,9 @@
-
 <?php
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddDoctorToArticlesTable extends Migration
+class AddIdToSettings extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +12,10 @@ class AddDoctorToArticlesTable extends Migration
      */
     public function up()
     {
-        //Schema::table('articles', function (Blueprint $table) {
-          //  $table->integer('doctor')->nullable();
-        //});
+      Schema::table('settings', function($table)
+{
+//  $table->increments('id');
+});
     }
 
     /**
@@ -25,8 +25,6 @@ class AddDoctorToArticlesTable extends Migration
      */
     public function down()
     {
-      //  Schema::table('articles', function (Blueprint $table) {
-      //      Schema::drop('articles');
-      //  });
+      //  Schema::drop('settings');
     }
 }

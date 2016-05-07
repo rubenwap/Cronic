@@ -15,6 +15,9 @@
     <link rel='stylesheet' href='{{ URL::to('css/fullcalendar.css') }}' />
     <link rel='stylesheet' href='{{ URL::to('css/jquery.datetimepicker.css')}}' />
 
+    <link rel="stylesheet" href="{{ URL::to('css/select2.min.css') }}">
+<link rel="stylesheet" href="{{ URL::to('css/select2-bootstrap.min.css') }}">
+
         <!-- Custom Fonts -->
         <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
     <!-- Styles -->
@@ -54,6 +57,14 @@
 }
 
 #f {
+  display:none;
+}
+
+#doctor {
+  display:none;
+}
+
+#allergies {
   display:none;
 }
 
@@ -132,7 +143,7 @@ margin-top: 2em;
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
-                            <li><a href="{{ url('/settings') }}"><i class="fa fa-btn fa-cog"></i>Settings</a></li>
+                            <li><a href="{{ url('/settings') }}"><i class="fa fa-btn fa-cog"></i>Profile</a></li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>
@@ -160,7 +171,9 @@ margin-top: 2em;
 <script src="{{ URL::to('js/lib/moment.min.js') }}"></script>
 <script src="{{ URL::to('js/fullcalendar.js') }}"></script>
 <script src="{{ URL::to('js/jquery.datetimepicker.full.min.js') }}"></script>
+<script src="{{ URL::to('js/select2.full.min.js')}}"></script>
 <script src="{{ URL::to('js/app.js') }}"></script>
+
 
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>

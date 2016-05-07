@@ -18,6 +18,7 @@ class CreateArticlesTable extends Migration
 			$table->text('body');
 			$table->integer('feeling');
             $table->timestamps();
+            $table->integer('doctor')->nullable();
 
         });
     }

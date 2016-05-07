@@ -9,6 +9,8 @@ use App\Event;
 use App\Http\Requests;
 use Carbon\Carbon;
 use App\User;
+use App\Setting;
+use App\Allergen;
 use Auth;
 
 class HomeController extends Controller
@@ -53,17 +55,31 @@ class HomeController extends Controller
     }
 
 public function settings() {
+  $settings = Setting::latest()->take(1)->get();
 $name = Auth::user()->name;
 $surname = Auth::user()->surname;
+$allergens = Allergen::all();
+$doctors = User::where('isdoctor', '=', 'yes')->get();
 
-
-
-
-
-
-return view('pages.settings',compact(['name','surname']));
+return view('pages.settings',compact(['name','surname','allergens','doctors','settings']));
 
 }
+
+public function settingssave(Requests\SettingRequest $request) {
+  $settings = Setting::latest()->take(1)->get();
+  $name = Auth::user()->name;
+  $surname = Auth::user()->surname;
+  $allergens = Allergen::all();
+  $doctors = User::where('isdoctor', '=', 'yes')->get();
+
+Setting::create(Request::all());
+  return view('pages.settings', compact(['name','surname','allergens','doctors','settings']))->with('message', 'Profile successfully updated!');
+
+
+
+}
+
+
 
 
 

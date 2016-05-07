@@ -1,4 +1,34 @@
+
 $(document).ready(function() {
+
+  $( "#allergensselect" ).select2({
+      theme: "bootstrap",
+      tags: true
+  }).on('change', function() {
+
+  $('#allergies').val($("#allergensselect option:selected").text());
+  });
+
+  $( "#doctorsselect" ).select2({
+      theme: "bootstrap",
+      tags: true
+  }).on('change', function() {
+
+  $('#doctor').val($("#doctorsselect option:selected").text());
+  });
+
+
+
+
+
+
+
+jQuery('#birth').datetimepicker({
+
+  timepicker:false,
+  format:'Y-m-d'
+});
+
 
     $('#myCarousel').on('slide.bs.carousel', function(ev) {
         var id = ev.relatedTarget.id;
