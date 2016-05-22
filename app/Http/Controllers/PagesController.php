@@ -31,7 +31,7 @@ $articles = Article::latest()->Paginate(5);
   }
 
   public function create(){
-return view('articles.create');
+return view('articles.create')->render();
 
   }
 

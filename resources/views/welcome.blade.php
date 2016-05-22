@@ -8,7 +8,7 @@
               <h1 class="logotext">Cronic</h1>
               <h3>Log your illness &amp; take control</h3>
               <br>
-              <a href="#about" class="btn btn-dark btn-lg">Find out more</a>
+              <a href="#about" id="btnfind" class="btn btn-dark btn-lg">Find out more</a>
           </div>
       </header>
 

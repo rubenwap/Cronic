@@ -105,7 +105,7 @@
 
 <div class="form-group">
 {!!Form::label('doctor', 'Share with your doctor')!!}
-{{ Form::checkbox('doctor', '1', null, ['class' => 'checkbox']) }}
+{!! Form::checkbox('doctor', '1', null, ['class' => 'checkbox']) !!}
   </div>
 
 

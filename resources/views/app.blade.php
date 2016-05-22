@@ -22,11 +22,56 @@
         <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
     <!-- Styles -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
-    {{-- <link href="{{ elixir('css/app.css') }}" rel="stylesheet"> --}}
     <link href="/css/stylish-portfolio.css" rel="stylesheet">
+    <link href="/css/simple-sidebar.css" rel="stylesheet">
+    <link href="/css/Supernice.min.css" rel="stylesheet">
+
+
     <style>
+    
+    .additions {
+        border-radius: 50%;
+             
+    }
+    
+    .additions:hover {
+         box-shadow: 5px 5px 2px #888888;
+    }
+    
+    .btn-primary {
+        background-color: #B3A3AB;
+        border-color: #B3A3AB;
+        margin-left: 2em;
+               
+    }
+    
+
+    
+    .navbar {
+    background-color:#223312 !important;
+    }
+    
+ 
+    .navbar-default .navbar-toggle .icon-bar {
+    background-color: #FFFFFF !important;
+}
+    
+    .panel-heading {
+            background-color:#96BB68 !important;
+            font-size: 1.5em;
+            font-weight: light; 
+            
+           
+    }
+    
+    .panel-default {
+        border-color: #96BB68 !important;
+    }
+
+    
         body {
             font-family: 'Lato';
+            background-color: #CAD991;
         }
 
         .fa-btn {
@@ -40,6 +85,7 @@
 
         .logotext {
           font-family: 'Lobster';
+          color: #FFFFFF;
         }
 
 .callout {
@@ -50,11 +96,23 @@
             margin-left: 1em;
         }
 
-
+#btnfind {
+  background-color: #FFFFFF;
+  color: white;
+}
 
 .carousel-caption {
   color: black;
 }
+
+.navbar-brand {
+  color:#FFFFFF !important;
+}
+#app-layout > nav > div > ul > li > a {
+  color:#FFFFFF;
+}
+
+
 
 #f {
   display:none;
@@ -84,7 +142,8 @@ margin-top: 2em;
 
 .indexEntries{
   border: solid 1px;
-  border-color: grey;
+  border-color: #ddd;
+  border-radius:5px;
 
     width: auto;
 }
@@ -94,12 +153,80 @@ margin-top: 2em;
 }
 
 
+@media (min-width: 768px) {
+  .mname {
+      display:none;
+  }
+  
+  
+  .navbar-collapse {
+    height: 100px;
+    border-top: 0;
+    box-shadow: none;
+    max-height: none;
+    padding-left:0;
+    padding-right:0;
+  }
+  .navbar-collapse.collapse {
+    display: block !important;
+    width: 100px !important;
+    padding-bottom: 0;
+    overflow: visible !important;
+  }
+  .navbar-collapse.in {
+    overflow-x: visible;
+  }
 
+.navbar
+{
+	max-width:100px;
+	margin-right: 0;
+	margin-left: 0;
+  float:left;
+  position: absolute;
+  height:100%;
+background-color:#223312 !important;
+}
+
+.navbar-nav,
+.navbar-nav > li,
+.navbar-left,
+.navbar-right,
+.navbar-header
+{float:none !important;
+
+
+}
+
+.navbar-right .dropdown-menu {left:0;right:auto;}
+.navbar-collapse .navbar-nav.navbar-right:last-child {
+    margin-right: 0;
+}
+
+
+.panel {
+  box-shadow: 5px 5px 2px #888888;
+  margin-top:1em;
+}
+
+.glyphicon {
+    font-size: 20px;
+}
+
+#btnfind {
+    color: #223312 !important;
+    border-radius: 10px;
+    box-shadow: 5px 5px 2px #888888;
+    
+}
+
+
+
+}
     </style>
 </head>
 <body id="app-layout">
     <nav class="navbar navbar-default navbar-static-top">
-        <div class="container">
             <div class="navbar-header">
 @if (Auth::check())
                 <!-- Collapsed Hamburger -->
@@ -121,12 +248,14 @@ margin-top: 2em;
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}">Home</a></li>
-                    <li><a href="{{ url('/articles') }}">View Entries</a></li>
-                    <li><a href="{{ url('/articles/create') }}">Add Entry</a></li>
-                    <li><a href="{{ url('/events') }}">Schedule</a></li>
-                    <li><a href="{{ url('/progress') }}">Progression</a></li>
+                    <li><a href="{{ url('/home') }}"><span class="glyphicon glyphicon-home" title="Home"></span> <span class="mname"> Home</span></a></li>
+                    <li><a href="{{ url('/articles') }}"><span class="glyphicon glyphicon-eye-open" title="View Entries"></span><span class="mname"> View Entries</span> </a></li>
+                    <li><a href="{{ url('/articles/create') }}"><span class="glyphicon glyphicon-plus" title="Add Entry"></span> <span class="mname"> Add Entry</span></a></li>
+                    <li><a href="{{ url('/events') }}"><span class="glyphicon glyphicon-calendar" title="Schedule"></span><span class="mname"> Schedule</span> </a></li>
+                    <li><a href="{{ url('/progress') }}"><span class="glyphicon glyphicon-stats" title="Progression"></span><span class="mname"> Progression</span> </a></li>
                 </ul>
+
+
 
                 @endif
 
@@ -139,7 +268,7 @@ margin-top: 2em;
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ Auth::user()->name }} <span class="caret"></span>
+                                <i class="fa fa-btn fa-user" title="User"></i>{{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
