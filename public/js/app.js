@@ -67,22 +67,22 @@ jQuery('#birth').datetimepicker({
 
         switch (imgFeeling) {
             case "1":
-                $('.hiddenFeeling').eq(i).append('<img src="../images/ps1.jpg" class="imgIndex" width="80" height="60"/>');
+                $('.hiddenFeeling').eq(i).append('<img src="../images/ps1.jpg" title="No Pain" class="imgIndex" width="80" height="60"/>');
                 break;
             case "2":
-                $('.hiddenFeeling').eq(i).append('<img src="../images/ps2.jpg" class="imgIndex" width="80" height="60"/>');
+                $('.hiddenFeeling').eq(i).append('<img src="../images/ps2.jpg" title="Hurts a bit" class="imgIndex" width="80" height="60"/>');
                 break;
             case "3":
-                $('.hiddenFeeling').eq(i).append('<img src="../images/ps3.jpg" class="imgIndex" width="80" height="60"/>');
+                $('.hiddenFeeling').eq(i).append('<img src="../images/ps3.jpg" title="Hurts a little more" class="imgIndex" width="80" height="60"/>');
                 break;
             case "4":
-                $('.hiddenFeeling').eq(i).append('<img src="../images/ps4.jpg" class="imgIndex" width="80" height="60"/>');
+                $('.hiddenFeeling').eq(i).append('<img src="../images/ps4.jpg" title="Hurts even more" class="imgIndex" width="80" height="60"/>');
                 break;
             case "5":
-                $('.hiddenFeeling').eq(i).append('<img src="../images/ps5.jpg" class="imgIndex" width="80" height="60"/>');
+                $('.hiddenFeeling').eq(i).append('<img src="../images/ps5.jpg" title="Hurts a lot" class="imgIndex" width="80" height="60"/>');
                 break;
             case "6":
-                $('.hiddenFeeling').eq(i).append('<img src="../images/ps6.jpg" class="imgIndex" width="80" height="60"/>');
+                $('.hiddenFeeling').eq(i).append('<img src="../images/ps6.jpg" title="Unbearable pain" class="imgIndex" width="80" height="60"/>');
                 break;
 
 

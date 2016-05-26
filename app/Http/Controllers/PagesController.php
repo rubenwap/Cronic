@@ -38,6 +38,8 @@ return view('articles.create')->render();
   public function store(Requests\EntryRequest $request) {
 
     Article::create(Request::all());
+    
+
     return redirect('home')->with('message', 'Entry successfully saved!');
   }
 

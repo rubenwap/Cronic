@@ -18,5 +18,6 @@
                       </div>
 
                       <div class="form-group">
-                       {!!Form::submit($submitBtn,  ['class'=>'btn btn-primary form-control'])!!}
+                   
+                       {!!Form::submit($submitBtn,  ['class'=>'saveevent btn btn-primary form-control record'])!!}
                       </div>

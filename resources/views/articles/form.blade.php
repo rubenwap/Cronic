@@ -106,12 +106,8 @@
 <div class="form-group">
 {!!Form::label('doctor', 'Share with your doctor')!!}
 {!! Form::checkbox('doctor', '1', null, ['class' => 'checkbox']) !!}
+ {!!Form::submit($submitBtn,  ['class'=>'btn btn-primary form-control record'])!!}
   </div>
 
 
-    <div class="form-group">
-     {!!Form::submit($submitBtn,  ['class'=>'btn btn-primary form-control'])!!}
-
-
-
-    </div>
+  

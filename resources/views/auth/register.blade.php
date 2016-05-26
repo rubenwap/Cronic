@@ -1,6 +1,11 @@
 @extends('app')
 
 @section('content')
+<style>
+.panel {
+    height: 100%; 
+}
+</style>
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
@@ -95,7 +100,64 @@
 
 
                                     </div>
+           
                                </div>
+    <div class="form-group">
+  
+   <label class="col-md-4 control-label">Date of birth:</label>
+
+                            <div class="col-md-6">
+     
+                        {!!Form::text('birth', null, ['class'=>'form-control', 'disabled', 'placeholder'=>'Disabled in this initial release'])!!}      </div>
+</div>    <div class="form-group">
+
+                         <label class="col-md-4 control-label">Height:</label>
+                            <div class="col-md-6">
+
+                        {!!Form::number('height', null, ['class'=>'form-control','disabled', 'placeholder'=>'Disabled in this initial release'])!!}      </div>
+                        </div>    <div class="form-group">
+
+                         <label class="col-md-4 control-label">Weight:</label>
+                                                     <div class="col-md-6">
+
+                        {!!Form::number('weight', null, ['class'=>'form-control','disabled', 'placeholder'=>'Disabled in this initial release'])!!}      </div>
+
+    
+      </div>
+   
+
+
+
+ <div class="form-group">
+                            
+
+  <label class="col-md-4 control-label">Allergies:</label><div class="col-md-6">
+<select id="allergensselect" class="form-control"   multiple="multiple">
+<option>Disabled in this initial release</option>
+
+</select>
+  {!!Form::text('allergies', null, ['class'=>'form-control', 'id'=>'allergies','disabled', 'placeholder'=>'Disabled in this initial release'])!!}
+                              </div></div>
+                              
+
+<div class="form-group"> 
+  <label class="col-md-4 control-label">What is your health problem?</label><div class="col-md-6">
+  {!!Form::text('illness', null, ['class'=>'form-control','disabled', 'placeholder'=>'Disabled in this initial release'])!!}
+</div></div>
+
+
+<div class="form-group"> 
+            <label class="col-md-4 control-label">Who is your doctor?</label><div class="col-md-6">
+          <select id="doctorsselect" class="form-control"  multiple="multiple">
+<option>Disabled in this initial release</option>
+          </select>
+            {!!Form::text('doctor', null, ['class'=>'form-control', 'id'=>'doctor','disabled', 'placeholder'=>'Disabled in this initial release' ])!!}
+</div></div>
+
+
+
+
+
 
 
                         <div class="form-group">
@@ -110,5 +172,5 @@
             </div>
         </div>
     </div>
-</div>
+</div>  </div>
 @endsection

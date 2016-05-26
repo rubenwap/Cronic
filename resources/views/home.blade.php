@@ -47,7 +47,7 @@
 
 
 
-<a href="{{ url('/articles/create') }}"><button type="button" class="btn btn-primary additions">  <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
+<a href="{{ url('/articles/create') }}"><button type="button" class="btn btn-primary additions">  <span class="glyphicon glyphicon-pencil" title="Add Entry" aria-hidden="true"></span>
  </button></a>
 <a href="{{ url('/events/create') }}"><button type="button" class="btn btn-primary additions">  <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
  </button></a>
