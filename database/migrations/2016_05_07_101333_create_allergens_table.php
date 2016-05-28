@@ -12,8 +12,8 @@ class CreateAllergensTable extends Migration
      */
     public function up()
     {
-      Schema::create('allergens', function (Blueprint $table) {
-          $table->increments('id');
+    Schema::create('allergens', function (Blueprint $table) {
+    $table->increments('id');
     $table->text('allergen');
       });
 

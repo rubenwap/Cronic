@@ -9,6 +9,7 @@ use App\Event;
 use App\Http\Requests;
 use Carbon\Carbon;
 use App\User;
+use Auth;
 
 
 
@@ -16,6 +17,8 @@ class PagesController extends Controller
 {
 
   public function index()  {
+      
+//\Auth::user();
 
 $articles = Article::latest()->Paginate(5);
   return view('articles.index', compact('articles'));
@@ -37,7 +40,9 @@ return view('articles.create')->render();
 
   public function store(Requests\EntryRequest $request) {
 
-    Article::create(Request::all());
+    $article = new Article($request->all());
+    
+    Auth::user()->articles()->save($article);
     
 
     return redirect('home')->with('message', 'Entry successfully saved!');

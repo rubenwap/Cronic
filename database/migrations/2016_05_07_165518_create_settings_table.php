@@ -15,12 +15,21 @@ class CreateSettingsTable extends Migration
         Schema::create('settings', function (Blueprint $table) {
       $table->increments('id');
 			$table->timestamp('birth');
-	
+        $table->integer('user_id')->unsigned();
+
+	$table->timestamps();
 			$table->integer('height');
       $table->integer('weight');
         $table->text('allergies');
       	$table->text('illness');
       $table->text('doctor');
+
+   
+            $table->foreign('user_id')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+
 
 
         });

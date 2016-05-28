@@ -9,6 +9,8 @@ use App\Event;
 use App\Http\Requests;
 use Carbon\Carbon;
 use App\User;
+use Auth;
+
 
 
 
@@ -68,7 +70,14 @@ return view('events.index', compact('events'));
 
 public function store(Requests\EventRequest $request) {
 
-  $events = Event::create(Request::all());
+ 
+    $events = new Event($request->all());
+    
+    Auth::user()->events()->save($events);
+
+
+
+  //$events = Event::create(Request::all());
   return redirect()->route('events.index')->with('message', 'Event successfully created!');
 }
 

@@ -40,8 +40,19 @@ Route::group(['middleware' => 'auth'],function(){
   Route::resource('events', 'EventsController');
   Route::get('/progress', 'HomeController@progress');
   Route::get('/calfeed', 'HomeController@calfeed');
-  Route::get('/settings', 'HomeController@settings');
-  Route::post('/settings', 'HomeController@settingssave');
+  
+  Route::get('/settings/edit', 'HomeController@editset');
+  
+   Route::get('/settings', [
+    'as' => 'settings', 'uses' => 'HomeController@settings'
+]);
+  
+  
+    Route::post('/settings/edit', [
+    'as' => 'ep', 'uses' => 'HomeController@settingssave'
+]);
+
+
 
 });
 

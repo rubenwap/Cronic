@@ -11,4 +11,12 @@ class Setting extends Model
       'birth', 'height', 'weight', 'allergies','illness', 'doctor'
   ];
     //
+    
+    
+//event is owned by a user
+public function user() {
+    return $this->belongsTo('App\User');
+}
+
+    
 }

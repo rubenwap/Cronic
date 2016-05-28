@@ -101,23 +101,9 @@
                             </div> <!-- panel -->
          </div> <!-- col -->
           </div> <!-- row -->
-        
-                         <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-  Pain Progress:
-  </div>   <!-- panel heading -->
-  <div class="panel-body">
-<a href="{{ url('/progress') }}"><div id="mainChart" style="width:100%; height:400px;"></div></a>
-</div> <!-- panel body-->
-                       </div> <!-- panel -->
-         </div> <!-- col -->
-          </div> <!-- row -->
-        
-
-        
-                                 <div class="row">
+          
+          
+           <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
                 <div class="panel-heading">
@@ -139,6 +125,24 @@
                        </div> <!-- panel -->
          </div> <!-- col -->
           </div> <!-- row -->
+          
+        
+                         <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+  Pain Progress:
+  </div>   <!-- panel heading -->
+  <div class="panel-body">
+<a href="{{ url('/progress') }}"><div id="mainChart" style="width:100%; height:400px;"></div></a>
+</div> <!-- panel body-->
+                       </div> <!-- panel -->
+         </div> <!-- col -->
+          </div> <!-- row -->
+        
+
+        
+                                
         
         
         

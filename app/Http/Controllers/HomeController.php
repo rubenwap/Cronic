@@ -12,6 +12,8 @@ use App\User;
 use App\Setting;
 use App\Allergen;
 use Auth;
+use Redirect;
+
 
 class HomeController extends Controller
 {
@@ -65,15 +67,38 @@ return view('pages.settings',compact(['name','surname','allergens','doctors','se
 
 }
 
-public function settingssave(Requests\SettingRequest $request) {
-  $settings = Setting::latest()->take(1)->get();
-  $name = Auth::user()->name;
-  $surname = Auth::user()->surname;
-  $allergens = Allergen::all();
-  $doctors = User::where('isdoctor', '=', 'yes')->get();
+public function editset() {
+$settings = Setting::latest()->take(1)->get();
+$name = Auth::user()->name;
+$surname = Auth::user()->surname;
+$allergens = Allergen::all();
+$doctors = User::where('isdoctor', '=', 'yes')->get();
 
-Setting::create(Request::all());
-  return view('pages.settings', compact(['name','surname','allergens','doctors','settings']))->with('message', 'Profile successfully updated!');
+return view('pages.editsettings',compact(['name','surname','allergens','doctors','settings']));
+
+}
+
+
+public function settingssave(Requests\SettingRequest $request) {
+ 
+  
+  
+ // $settings = Setting::latest()->take(1)->get();
+  //$name = Auth::user()->name;
+  //$surname = Auth::user()->surname;
+ // $allergens = Allergen::all();
+ // $doctors = User::where('isdoctor', '=', 'yes')->get();
+  
+  
+   $setting = new Setting($request->all());
+    
+    Auth::user()->settings()->save($setting);
+  //return redirect()->route('events.index')->with('message', 'Event successfully created!');
+
+    return redirect()->route('settings')->with('message', 'Profile updated correctly!');
+
+ //Auth::user()->events()->Setting::create(Request::all());
+  //return view('pages.settings', compact(['name','surname','allergens','doctors','settings']))->withInput()->withErrors('message', 'Profile successfully updated!');
 
 
 
