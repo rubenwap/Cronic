@@ -21,7 +21,7 @@ class EventsController extends Controller
 
 //OK
   public function show($id) {
-    $event = Event::findOrFail($id);
+    $event = Event::where('user_id', Auth::user()->id)->findOrFail($id);
     return view('events.show', compact('event'));
   }
 //OK
@@ -37,13 +37,13 @@ class EventsController extends Controller
 
 
 public function edit($id) {
-  $event = Event::findOrFail($id);
+  $event = Event::where('user_id', Auth::user()->id)->findOrFail($id);
   return view('events.edit', compact('event'));
 }
 
 
 public function update($id, Requests\EventRequest $request) {
-  $event = Event::findOrFail($id);
+  $event = Event::where('user_id', Auth::user()->id)->findOrFail($id);
 
   $event->update(Request::all());
   return redirect('events')->with('message', 'Entry successfully modified!');
@@ -51,7 +51,7 @@ public function update($id, Requests\EventRequest $request) {
 
 public function destroy($id)
     {
-        $event = Event::findOrFail($id);
+        $event = Event::where('user_id', Auth::user()->id)->findOrFail($id);
         $event->delete();
         return redirect()->route('events.index')->with('message', 'Event successfully deleted!');
     }
@@ -61,7 +61,7 @@ public function destroy($id)
 //ok
 public function index()  {
 
-$events = Event::latest()->Paginate(5);
+$events = Event::where('user_id', Auth::user()->id)->latest()->Paginate(5);
 return view('events.index', compact('events'));
 
 }

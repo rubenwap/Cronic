@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{!! csrf_token() !!}">
 
     <title>CRONIC</title>
 
@@ -11,7 +12,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
-
+    <link rel='stylesheet' href='https://code.jquery.com/ui/1.11.4/themes/cupertino/jquery-ui.css'/>
     <link rel='stylesheet' href='{{ URL::to('css/fullcalendar.css') }}' />
     <link rel='stylesheet' href='{{ URL::to('css/jquery.datetimepicker.css')}}' />
 
@@ -100,11 +101,13 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
     <script src="http://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.min.js"   integrity="sha256-xNjb53/rY+WmG+4L6tTl9m6PpqknWZvRt0rO1SRnJzw="   crossorigin="anonymous"></script>
 <script src="{{ URL::to('js/lib/moment.min.js') }}"></script>
 <script src="{{ URL::to('js/fullcalendar.js') }}"></script>
 <script src="{{ URL::to('js/jquery.datetimepicker.full.min.js') }}"></script>
 <script src="{{ URL::to('js/select2.full.min.js')}}"></script>
 <script src="{{ URL::to('js/app.js') }}"></script>
+<script src="{{ URL::to('js/ajax.js') }}"></script>
 
 
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}

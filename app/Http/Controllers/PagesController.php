@@ -13,14 +13,15 @@ use Auth;
 
 
 
+
+
 class PagesController extends Controller
 {
 
   public function index()  {
       
 //\Auth::user();
-
-$articles = Article::latest()->Paginate(5);
+$articles = Article::where('user_id', Auth::user()->id)->latest()->Paginate(5);
   return view('articles.index', compact('articles'));
 
   }
@@ -28,7 +29,7 @@ $articles = Article::latest()->Paginate(5);
 
   public function show($id) {
 
-    $article = Article::findOrFail($id);
+    $article = Article::where('user_id', Auth::user()->id)->findOrFail($id);
 
     return view('articles.show', compact('article'));
   }
@@ -52,7 +53,7 @@ return view('articles.create')->render();
 
 
 public function edit($id) {
-  $article = Article::findOrFail($id);
+  $article = Article::where('user_id', Auth::user()->id)->findOrFail($id);
 
   return view('articles.edit', compact('article'));
 }
@@ -67,9 +68,11 @@ public function update($id, Requests\EntryRequest $request) {
 
 public function destroy($id)
     {
-        $article = Article::findOrFail($id);
-        $article->delete();
-        return redirect()->route('articles.index')->with('message', 'Entry successfully deleted!');
+       $article = Article::where('user_id', Auth::user()->id)->findOrFail($id);
+       $article->delete();
+       return redirect()->route('articles.index')->with('message', 'Entry successfully deleted!');
+           
+        
     }
 
 

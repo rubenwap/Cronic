@@ -1,9 +1,6 @@
 @extends('app')
 
-
 @section('content')
-
-
 
   <div class="container">
       <div class="row">
@@ -55,7 +52,7 @@
             {!!Form::text('doctor', null, ['class'=>'form-control', 'id'=>'doctor', ])!!}
 <br>
   <div class="form-group">
-           {!!Form::submit('Save',  ['class'=>'btn btn-primary form-control'])!!}
+           {!!Form::submit('Save',  ['class'=>'btn btn-primary form-control record'])!!}
           {!!Form::close()!!}
                                       </div>    </div>
 

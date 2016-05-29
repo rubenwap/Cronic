@@ -2,6 +2,10 @@
 
 
 @section('content')
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
+
 
   <div class="container">
       <div class="row">
@@ -12,6 +16,8 @@
                   <div class="panel-body">
 
                     @if(Session::has('message')) <div class="alert alert-success"> {{Session::get('message')}} </div> @endif
+                    <div class="alert alert-success" id="ms" style="display:none;">Entry successfully deleted!</div>
+                    <div class="alert alert-success" id="me" style="display:none;">There was a problem deleting your entry</div>
 
                     <div class="table-responsive">
                       <table class="table">
@@ -19,6 +25,18 @@
 <th>Title</th>
                         </tr>
 @foreach($articles as $article)
+
+<script>
+ 
+$(document).ready(function($) {
+ 
+    
+    });
+</script>
+
+
+
+
 
 
 <tr>
