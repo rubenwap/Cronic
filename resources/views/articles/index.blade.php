@@ -27,9 +27,55 @@
 @foreach($articles as $article)
 
 <script>
+
+$(document).ready(function() {
+     
+    
+    var title = "{{$article->title}}";
+    var body = "{{$article->body}}";
+    var feeling = "{{$article->feeling}}";
+    
  
-$(document).ready(function($) {
- 
+  $('#{{$article->id}}').on('click', function(e) {
+    //var inputData = $('#formDeleteProduct').serialize();
+$.ajaxSetup({
+   headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
+});
+   
+
+    $.ajax({
+        url: '/articles/' + {{$article->id}},
+         type:'post',
+       
+        data: {
+          
+            "_method": "delete",          
+            "title": title, 
+            "body": body, 
+            "feeling": feeling
+            
+        },
+        success: function( message ) {
+            if ( message.status === 'success' ) {
+                console.log("success");
+                $("#ms").show();
+               $('#{{$article->id}}').parent().parent().fadeOut("slow");
+        }
+        },
+        error: function( data ) {
+            if ( data.status === 422 ) {
+                console.log(data.error);
+                $("#me").show();
+            }
+        }
+    });
+
+    return false;
+});
+    
+    
+    
+    
     
     });
 </script>

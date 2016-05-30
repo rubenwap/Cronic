@@ -15,6 +15,7 @@ use Auth;
 
 
 
+
 class PagesController extends Controller
 {
 
@@ -66,12 +67,23 @@ public function update($id, Requests\EntryRequest $request) {
   return redirect('articles');
 }
 
-public function destroy($id)
+public function destroy($id, Request $request)
     {
+       //$article = Article::where('user_id', Auth::user()->id)->findOrFail($id);
+       //$article->delete();
+       //return redirect()->route('articles.index')->with('message', 'Entry successfully deleted!');
+       
        $article = Article::where('user_id', Auth::user()->id)->findOrFail($id);
+       if ( Request::ajax() ) {
+        $article->delete();
+
+        return response(['msg' => 'Product deleted', 'status' => 'success']);
+    } else {
        $article->delete();
        return redirect()->route('articles.index')->with('message', 'Entry successfully deleted!');
-           
+        
+    }
+    //return response(['msg' => 'Failed deleting the product', 'status' => 'failed']);    
         
     }
 
