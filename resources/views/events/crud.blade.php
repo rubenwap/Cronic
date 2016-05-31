@@ -9,6 +9,6 @@ button {
   <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
     {!!Form::close()!!}
 
-    {!! Form::open(['url' => route('events.destroy', $event->id), 'method' => 'delete', 'class' => 'pull-right']) !!}
+    {!! Form::open(['url' => route('events.destroy', $event->id), 'method' => 'delete', 'id'=>$event->id, 'class' => 'pull-right']) !!}
              <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button>
          {!! Form::close() !!}

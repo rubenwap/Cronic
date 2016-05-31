@@ -77,7 +77,7 @@ public function destroy($id, Request $request)
        if ( Request::ajax() ) {
         $article->delete();
 
-        return response(['msg' => 'Product deleted', 'status' => 'success']);
+        return response(['msg' => 'Entry deleted', 'status' => 'success']);
     } else {
        $article->delete();
        return redirect()->route('articles.index')->with('message', 'Entry successfully deleted!');

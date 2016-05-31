@@ -49,11 +49,27 @@ public function update($id, Requests\EventRequest $request) {
   return redirect('events')->with('message', 'Entry successfully modified!');
 }
 
-public function destroy($id)
+
+
+
+public function destroy($id, Request $request)
     {
-        $event = Event::where('user_id', Auth::user()->id)->findOrFail($id);
+       //$article = Article::where('user_id', Auth::user()->id)->findOrFail($id);
+       //$article->delete();
+       //return redirect()->route('articles.index')->with('message', 'Entry successfully deleted!');
+       
+       $event = Event::where('user_id', Auth::user()->id)->findOrFail($id);
+       if ( Request::ajax() ) {
         $event->delete();
-        return redirect()->route('events.index')->with('message', 'Event successfully deleted!');
+
+        return response(['msg' => 'Event deleted', 'status' => 'success']);
+    } else {
+       $event->delete();
+       return redirect()->route('events.index')->with('message', 'Event successfully deleted!');
+        
+    }
+    //return response(['msg' => 'Failed deleting the product', 'status' => 'failed']);    
+        
     }
 
 

@@ -3,6 +3,7 @@
 
 @section('content')
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<meta name="csrf-token" content="{{ csrf_token() }}" />
 
 
 
@@ -34,13 +35,11 @@ $(document).ready(function() {
     var title = "{{$article->title}}";
     var body = "{{$article->body}}";
     var feeling = "{{$article->feeling}}";
-    
+    var token = $('meta[name="csrf-token"]').attr('content');
  
   $('#{{$article->id}}').on('click', function(e) {
     //var inputData = $('#formDeleteProduct').serialize();
-$.ajaxSetup({
-   headers: { 'X-CSRF-Token' : $('meta[name=_token]').attr('content') }
-});
+
    
 
     $.ajax({
@@ -52,14 +51,15 @@ $.ajaxSetup({
             "_method": "delete",          
             "title": title, 
             "body": body, 
-            "feeling": feeling
+            "feeling": feeling,
+            "_token":token
             
         },
         success: function( message ) {
             if ( message.status === 'success' ) {
                 console.log("success");
-                $("#ms").show();
                $('#{{$article->id}}').parent().parent().fadeOut("slow");
+                  $("#ms").show();
         }
         },
         error: function( data ) {

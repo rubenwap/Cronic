@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="_token" content="{!! csrf_token() !!}"/>
+
 
     <title>CRONIC</title>
 
@@ -26,6 +26,8 @@
     <link href="/css/stylish-portfolio.css" rel="stylesheet">
     <link href="/css/simple-sidebar.css" rel="stylesheet">
         <link href="/css/Supernice.min.css" rel="stylesheet">
+        <link rel="stylesheet" href="{{ URL::to('css/bootstrap-toggle.min.css') }}">
+
 
 
 </head>
@@ -106,10 +108,13 @@
 <script src="{{ URL::to('js/fullcalendar.js') }}"></script>
 <script src="{{ URL::to('js/jquery.datetimepicker.full.min.js') }}"></script>
 <script src="{{ URL::to('js/select2.full.min.js')}}"></script>
+
+<script src="{{ URL::to('js/bootstrap-toggle.min.js')}}"></script>
 <script src="{{ URL::to('js/app.js') }}"></script>
 <script src="{{ URL::to('js/ajax.js') }}"></script>
 
 
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>
+
 </html>
