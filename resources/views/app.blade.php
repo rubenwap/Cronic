@@ -110,6 +110,8 @@
 <script src="{{ URL::to('js/select2.full.min.js')}}"></script>
 
 <script src="{{ URL::to('js/bootstrap-toggle.min.js')}}"></script>
+<script src="{{ URL::to('js/bootbox.min.js')}}"></script>
+
 <script src="{{ URL::to('js/app.js') }}"></script>
 <script src="{{ URL::to('js/ajax.js') }}"></script>
 
