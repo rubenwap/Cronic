@@ -42,12 +42,17 @@ return view('articles.create')->render();
 
   public function store(Requests\EntryRequest $request) {
 
-    $article = new Article($request->all());
-    
-    Auth::user()->articles()->save($article);
-    
+    $newarticle = new Article($request->all());
+         if ( Request::ajax() ) {
+    Auth::user()->articles()->save($newarticle);
 
+        return response(['msg' => 'Entry saved', 'status' => 'success']);
+    } else {
+  
+    Auth::user()->articles()->save($newarticle);
+    
     return redirect('home')->with('message', 'Entry successfully saved!');
+    }
   }
 
 

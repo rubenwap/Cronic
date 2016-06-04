@@ -34,6 +34,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+            
+
       $articles = Article::where('user_id', Auth::user()->id)->latest()->take(1)->get();
       $oneWeek = Carbon::now()->subWeek();
       $events = Event::where('user_id', Auth::user()->id)->whereBetween('start', [Carbon::now(),Carbon::now()->addDays(7) ])->get();
@@ -42,6 +44,23 @@ class HomeController extends Controller
         return view('home', compact(['articles','events','articlesPain']));
 
     }
+    
+       public function latest() {
+      $latest = Article::where('user_id', Auth::user()->id)->latest()->take(1)->get();
+      
+      return $latest->toJson();
+    }
+
+public function oneweek() {
+        $oneWeek = Carbon::now()->subWeek();
+      $oneweekevents = Event::where('user_id', Auth::user()->id)->whereBetween('start', [Carbon::now(),Carbon::now()->addDays(7) ])->get();
+        return $oneweekevents->toJson();
+
+    
+}
+    
+    
+    
 
     public function calfeed() {
       $calfeed = Event::where('user_id', Auth::user()->id)->latest()->get();
@@ -65,6 +84,12 @@ $allergens = Allergen::all();
 $doctors = User::where('isdoctor', '=', 'yes')->get();
 
 return view('pages.settings',compact(['name','surname','allergens','doctors','settings']));
+
+}
+
+public function sfeed() {
+      $sfeed = Setting::where('user_id', Auth::user()->id)->latest()->take(1)->get();
+            return $sfeed->toJson();
 
 }
 
@@ -92,11 +117,22 @@ public function settingssave(Requests\SettingRequest $request) {
   
   
    $setting = new Setting($request->all());
+ 
     
+     if ( Request::ajax() ) {
     Auth::user()->settings()->save($setting);
+
+        return response(['msg' => 'Settings saved', 'status' => 'success']);
+    } else {
+           
+    Auth::user()->settings()->save($setting);
+        return redirect()->route('settings')->with('message', 'Profile updated correctly!');
+
+    
+    }
+    
   //return redirect()->route('events.index')->with('message', 'Event successfully created!');
 
-    return redirect()->route('settings')->with('message', 'Profile updated correctly!');
 
  //Auth::user()->events()->Setting::create(Request::all());
   //return view('pages.settings', compact(['name','surname','allergens','doctors','settings']))->withInput()->withErrors('message', 'Profile successfully updated!');

@@ -40,7 +40,10 @@ Route::group(['middleware' => 'auth'],function(){
   Route::resource('events', 'EventsController');
   Route::get('/progress', 'HomeController@progress');
   Route::get('/calfeed', 'HomeController@calfeed');
-  
+  Route::get('/latest', 'HomeController@latest');
+  Route::get('/oneweek', 'HomeController@oneweek');
+    Route::get('/sfeed', 'HomeController@sfeed');
+
   Route::get('/settings/edit', 'HomeController@editset');
   
    Route::get('/settings', [

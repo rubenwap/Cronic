@@ -93,12 +93,7 @@
 
 
     </div>
-<!--
 
-<div class="form-group">
-  {-!!Form::label('published_at', 'Publish on: ')!!}
- {-!!Form::input('date','published_at', date('Y-m-d'), ['class'=>'form-control'])!!}
-</div> -->
 <div class="form-group">
 {!!Form::number('feeling', '1', ['class'=>'form-control', 'id' => 'f'])!!}
 </div>

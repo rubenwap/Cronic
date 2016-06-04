@@ -32,6 +32,8 @@
 
 </head>
 <body id="app-layout">
+<div id="loader"></div>
+
     <nav class="navbar navbar-default navbar-static-top">
             <div class="navbar-header">
 @if (Auth::check())

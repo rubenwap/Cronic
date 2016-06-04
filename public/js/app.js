@@ -1,6 +1,18 @@
 
 $(document).ready(function() {
 
+$('#loader')
+    .hide()  // Hide it initially
+    .ajaxStart(function() {
+        $(this).show();
+    })
+    .ajaxStop(function() {
+        $(this).hide();
+    })
+;
+
+
+
   $( "#allergensselect" ).select2({
       theme: "bootstrap",
       tags: true
