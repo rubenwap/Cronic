@@ -43,6 +43,9 @@ Route::group(['middleware' => 'auth'],function(){
   Route::get('/latest', 'HomeController@latest');
   Route::get('/oneweek', 'HomeController@oneweek');
     Route::get('/sfeed', 'HomeController@sfeed');
+    Route::get('/articlefeed', 'PagesController@articlefeed');
+    Route::get('/eventfeed', 'EventsController@eventfeed');
+
 
   Route::get('/settings/edit', 'HomeController@editset');
   

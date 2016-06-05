@@ -38,15 +38,31 @@ class EventsController extends Controller
 
 public function edit($id) {
   $event = Event::where('user_id', Auth::user()->id)->findOrFail($id);
-  return view('events.edit', compact('event'));
+  if (Request::ajax()) {
+               return $event->toJson();
+
+  }
+  else {
+  return view('events.edit', compact('event'));    
+  }
+  
 }
 
 
 public function update($id, Requests\EventRequest $request) {
   $event = Event::where('user_id', Auth::user()->id)->findOrFail($id);
 
+if (Request::ajax()) {
   $event->update(Request::all());
-  return redirect('events')->with('message', 'Entry successfully modified!');
+  
+} else {
+
+  $event->update(Request::all());
+  return redirect('events')->with('message', 'Entry successfully modified!');    
+    
+}
+
+
 }
 
 
@@ -82,6 +98,12 @@ return view('events.index', compact('events'));
 
 }
 //ok
+
+public function eventfeed() {
+    $events = Event::where('user_id', Auth::user()->id)->latest()->Paginate(5);
+    return $events->toJson();
+
+}
 
 
 public function store(Requests\EventRequest $request) {

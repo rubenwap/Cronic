@@ -5,7 +5,7 @@ button {
 </style>
 
 
-    {!!Form::model($article,['method'=> 'GET', 'class' => 'pull-right', 'title'=>'Edit','action' => ['PagesController@edit', $article->id]])!!}
+    {!!Form::model($article,['method'=> 'GET', 'id'=>$article->id,'class' => 'pull-right fedit', 'title'=>'Edit','action' => ['PagesController@edit', $article->id]])!!}
   <button type="submit" class="btn btn-primary"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></button>
     {!!Form::close()!!}
 

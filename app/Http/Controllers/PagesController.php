@@ -59,17 +59,34 @@ return view('articles.create')->render();
 
 
 public function edit($id) {
-  $article = Article::where('user_id', Auth::user()->id)->findOrFail($id);
+   if ( Request::ajax() ) {
+  
+  $toedit = Article::where('user_id', Auth::user()->id)->findOrFail($id);
+         return $toedit->toJson();
 
+   }else {
+         $article = Article::where('user_id', Auth::user()->id)->findOrFail($id);
   return view('articles.edit', compact('article'));
 }
+}
 
+public function articlefeed() {
+$articles = Article::where('user_id', Auth::user()->id)->latest()->Paginate(5);
+    return $articles->toJson();
+
+}
 
 public function update($id, Requests\EntryRequest $request) {
   $article = Article::findOrFail($id);
 
+if ( Request::ajax() ) {
+      $article->update(Request::all());
+
+}
+ else {
   $article->update(Request::all());
   return redirect('articles');
+ }
 }
 
 public function destroy($id, Request $request)

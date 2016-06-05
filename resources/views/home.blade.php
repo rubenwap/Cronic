@@ -125,7 +125,7 @@ $(document).ready(function() {
 ''+
 '<div class="form-group">'+
 ''+
-'{!! Form::checkbox('doctor', '1', null, ['class' => 'checkbox', 'data-toggle'=>'toggle', 'data-onstyle'=>'success', 'id'=>'drcheck']) !!}'+
+'{!! Form::checkbox('doctor', '1', '0', ['class' => 'checkbox', 'data-toggle'=>'toggle', 'data-onstyle'=>'success', 'id'=>'drcheck']) !!}'+
 '{!!Form::label('doctor', 'Share with your doctor')!!}'+
 ' {!!Form::submit("Save Entry",  ['class'=>'btn btn-primary form-control record', 'id'=>'saveart'])!!}'+
 '  </div>'+
@@ -143,6 +143,50 @@ $(document).ready(function() {
 }); //cierre dialog
     
     
+            $($('#myCarousel')[0]).on('slide.bs.carousel', function(ev) {
+        var id = ev.relatedTarget.id;
+
+//This gives numerical values to the pain according to the chose graph
+// f is the id for the hidden text field in the form
+        switch (id) {
+            case "1":
+                $('#f').val(1);
+                break;
+            case "2":
+                $('#f').val(2);
+                break;
+            case "3":
+                $('#f').val(3);
+                break;
+            case "4":
+                $('#f').val(4);
+                break;
+            case "5":
+                $('#f').val(5);
+                break;
+            case "6":
+                $('#f').val(6);
+                break;
+
+        }
+    })
+    
+    
+    
+    
+     $('#drcheck').change(function() {
+      switch ($('#drcheck').prop('checked')) {
+        case true:
+        doctor = 1;
+        console.log(doctor);
+        break;
+        case false:
+        doctor = 0;
+        console.log(doctor);
+        break;
+    }
+    
+    
     var title = $('#title').val();
     var body = $('#body').val();
     var feeling = $('#f').val();
@@ -154,7 +198,16 @@ $(document).ready(function() {
       $.ajax({
             type: "POST",
             url: '/articles/',
-            data: form.serialize(),
+            data: {
+                              
+            "title": title, 
+            "body": body, 
+            "feeling": $('#f').val(),
+            "doctor": doctor,
+            "_token":$('meta[name="csrf-token"]').attr('content')
+             
+                
+            },
             success: function( msg ) {
             articlemodal.modal('toggle');
            $('#confirmationArt').hide();
@@ -166,6 +219,7 @@ $(document).ready(function() {
              $('#latesttitle').text(data[0].title);
              $('#latestbody').text(data[0].body);
              $('#latestfeeling').text(data[0].feeling);
+            $($('.imgIndex')[0]).attr("src", "../images/ps"+data[0].feeling+".jpg")
              $('#latestdate').text(moment(data[0].created_at).format('dddd Do MMMM H:mm'));
              
     });
@@ -176,11 +230,10 @@ $(document).ready(function() {
         });
    });
     
+
     
     
-    
-    
-    
+    }); 
     
 $('#drcheck').bootstrapToggle();
 
@@ -189,7 +242,7 @@ $('#drcheck').bootstrapToggle();
  
     }); //cierre document ready
     
- 
+
  
 
 
@@ -410,6 +463,21 @@ jQuery('.timepicker').datetimepicker();
                        </div> <!-- panel -->
          </div> <!-- col -->
           </div> <!-- row -->
+          
+          
+            <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+  Calendar:
+  </div>   <!-- panel heading -->
+  <div class="panel-body">
+<div id="calendar"></div>
+</div> <!-- panel body-->
+                       </div> <!-- panel -->
+         </div> <!-- col -->
+          </div> <!-- row -->
+          
           
         
                          <div class="row">
