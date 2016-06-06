@@ -369,7 +369,8 @@ jQuery('.timepicker').datetimepicker();
                        @endif
 
 
-                </div> <!-- heading -->
+                <i class="fa fa-minus pull-right minimize" aria-hidden="true"></i>
+</div> <!-- heading -->
 
                 <div class="panel-body">
 
@@ -393,10 +394,10 @@ jQuery('.timepicker').datetimepicker();
 
 
 
-<span>QUICK ADD: </span>
-<button type="button" class="btn btn-primary additions aaa">  <span class="glyphicon glyphicon-plus" title="Add Entry" aria-hidden="true"></span>
+
+<button type="button" class="btn btn-primary additions aaa">  <i class="fa fa-plus-circle fa-2x additionsicon" aria-hidden="true" title="Add Entry"></i>
  </button>
-<button type="button" class="btn btn-primary additions eaa">  <span class="glyphicon glyphicon-calendar" aria-hidden="true"></span>
+<button type="button" class="btn btn-primary additions eaa">  <i class="fa fa-calendar-plus-o fa-2x additionsicon" aria-hidden="true" title="Add Event"></i>
  </button>
               <h2>Latest entry:</h2>
 
@@ -445,7 +446,7 @@ jQuery('.timepicker').datetimepicker();
             <div class="panel panel-default">
                 <div class="panel-heading">
   Your reminders for the next 7 days:
-  </div>
+   <i class="fa fa-minus pull-right minimize" title="Minimize" aria-hidden="true"></i></div>
    <div class="panel-body" >
   
   
@@ -469,7 +470,7 @@ jQuery('.timepicker').datetimepicker();
             <div class="panel panel-default">
                 <div class="panel-heading">
   Calendar:
-  </div>   <!-- panel heading -->
+  <i class="fa fa-minus pull-right minimize"  title="Minimize" aria-hidden="true"></i> </div>   <!-- panel heading -->
   <div class="panel-body">
 <div id="calendar"></div>
 </div> <!-- panel body-->
@@ -484,7 +485,7 @@ jQuery('.timepicker').datetimepicker();
             <div class="panel panel-default">
                 <div class="panel-heading">
   Pain Progress:
-  </div>   <!-- panel heading -->
+  <i class="fa fa-minus pull-right minimize"  title="Minimize" aria-hidden="true"></i> </div>   <!-- panel heading -->
   <div class="panel-body">
 <a href="{{ url('/progress') }}"><div id="mainChart" style="width:100%; height:400px;"></div></a>
 </div> <!-- panel body-->

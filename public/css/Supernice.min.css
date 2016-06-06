@@ -1,3 +1,7 @@
+.minimize:hover {
+    color: #888888;
+}
+
 .pagination>.active>span {
     background-color: #96BB68 !important; 
     border-color: #96BB68 !important; 
@@ -116,20 +120,19 @@
 }
     
     .additions {
-        border-radius: 50% !important;
-                  text-align: initial !important;
-                  width: 3em;
-                  height: 3em;
-                  text-align: center; 
-                   margin-left: 2em;
-
+     
+                  width: 4em;
+                  height: 4em;
+                  background-color: #96BB68;
+     
     }
     
-    .additions:hover {
-         box-shadow: 5px 5px 2px #888888;
-         border-radius: 50%;
-         background-color: #223312;
-
+     .additions:focus{
+     
+                  width: 4em;
+                  height: 4em;
+                  background-color: #96BB68 !important;
+     
     }
     
     .btn-primary {

@@ -56,11 +56,13 @@
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
-                    <li><a href="{{ url('/home') }}"><span class="glyphicon glyphicon-home" title="Home"></span> <span class="mname"> Home</span></a></li>
-                    <li><a href="{{ url('/articles') }}"><span class="glyphicon glyphicon-eye-open" title="View Entries"></span><span class="mname"> View Entries</span> </a></li>
-                    <li><a href="{{ url('/articles/create') }}"><span class="glyphicon glyphicon-plus" title="Add Entry"></span> <span class="mname"> Add Entry</span></a></li>
-                    <li><a href="{{ url('/events') }}"><span class="glyphicon glyphicon-calendar" title="Schedule"></span><span class="mname"> Schedule</span> </a></li>
-                    <li><a href="{{ url('/progress') }}"><span class="glyphicon glyphicon-stats" title="Progression"></span><span class="mname"> Progression</span> </a></li>
+                    <li><a href="{{ url('/home') }}"><i class="fa fa-home fa-2x" aria-hidden="true" title="Home"></i><span class="mname"> Home</span></a></li>
+                                        <li><a href="{{ url('/articles/create') }}"><i class="fa fa-plus-circle fa-2x" aria-hidden="true" title="Add Entry"></i><span class="mname"> Add Entry</span></a></li>
+                    <li><a href="{{ url('/events/create') }}"><i class="fa fa-calendar-plus-o fa-2x" aria-hidden="true" title="Add Event"></i><span class="mname"> Add Event</span> </a></li>
+
+                    <li><a href="{{ url('/articles') }}"><i class="fa fa-eye fa-2x" aria-hidden="true" title="View Entries"></i><span class="mname"> View Entries</span> </a></li>
+                    <li><a href="{{ url('/events') }}"><i class="fa fa-calendar fa-2x" aria-hidden="true" title="View Events"></i><span class="mname"> View Events</span> </a></li>
+                    <li><a href="{{ url('/progress') }}"><i class="fa fa-bar-chart fa-2x" aria-hidden="true" title="Progress"></i><span class="mname"> Progress</span> </a></li>
                 </ul>
 
 

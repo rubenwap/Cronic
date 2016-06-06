@@ -1,5 +1,29 @@
 
+
+
+
+
 $(document).ready(function() {
+
+
+$($($($('.minimize')[1]).parent().parent()).children()[1]).hide();
+$($($($('.minimize')[2]).parent().parent()).children()[1]).hide();
+$($($($('.minimize')[3]).parent().parent()).children()[1]).hide()
+
+$($('.minimize')[1]).toggleClass('fa-minus fa-plus');
+$($('.minimize')[2]).toggleClass('fa-minus fa-plus');
+$($('.minimize')[3]).toggleClass('fa-minus fa-plus');
+
+
+$('.minimize').on("click", function(){
+$($(this).parent().parent().children()[1]).slideToggle('500');
+$(this).toggleClass('fa-minus fa-plus');
+ 
+});
+
+
+
+
 
 $('#bprogress').on("click", function(){
     
