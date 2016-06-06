@@ -32,7 +32,7 @@
 
 </head>
 <body id="app-layout">
-<div id="loader"></div>
+<div id="loader" style="display:none;"></div>
 
     <nav class="navbar navbar-default navbar-static-top">
             <div class="navbar-header">

@@ -25,7 +25,7 @@ $(document).ready(function() {
 
   '<h2>{!! Auth::user()->name !!}, how do you feel?</h2>'+
 
-  '{!!Form::open(["url" => "articles"])!!}'+
+  '{!!Form::open(["url" => "articles", "id"=>"fart"])!!}'+
   
              
 
@@ -142,8 +142,7 @@ $(document).ready(function() {
   
 }); //cierre dialog
     
-    
-            $($('#myCarousel')[0]).on('slide.bs.carousel', function(ev) {
+        $($('#myCarousel')[0]).on('slide.bs.carousel', function(ev) {
         var id = ev.relatedTarget.id;
 
 //This gives numerical values to the pain according to the chose graph
@@ -169,7 +168,13 @@ $(document).ready(function() {
                 break;
 
         }
-    })
+        
+       
+      
+        
+        
+    });
+    
     
     
     
@@ -191,23 +196,17 @@ $(document).ready(function() {
     var body = $('#body').val();
     var feeling = $('#f').val();
     
+     
+   
     
-     var form = $( 'form' ).on( 'submit', function(e) {
+     var form = $( '#fart' ).on( 'submit', function(e) {
+   
         e.preventDefault(); 
       
       $.ajax({
             type: "POST",
             url: '/articles/',
-            data: {
-                              
-            "title": title, 
-            "body": body, 
-            "feeling": $('#f').val(),
-            "doctor": doctor,
-            "_token":$('meta[name="csrf-token"]').attr('content')
-             
-                
-            },
+            data: form.serialize(),
             success: function( msg ) {
             articlemodal.modal('toggle');
            $('#confirmationArt').hide();
@@ -259,7 +258,7 @@ $(document).ready(function() {
   title: 'Register an event in your calendar',
   message:  
     '<div>'+
-    '{!!Form::open(["url" => "events"])!!}'+
+    '{!!Form::open(["url" => "events", "id" => "fev"])!!}'+
 
 '<div class="form-group">'+
 ''+
@@ -300,7 +299,7 @@ jQuery('.timepicker').datetimepicker();
 
 
  
-     var form = $( 'form' ).on( 'submit', function(e) {
+     var form = $( '#fev' ).on( 'submit', function(e) {
         e.preventDefault(); 
       
       $.ajax({

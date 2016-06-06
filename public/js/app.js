@@ -1,6 +1,12 @@
 
 $(document).ready(function() {
 
+$('#bprogress').on("click", function(){
+    
+    $('#panelprogress').toggle();
+    
+});
+
 $('#loader')
     .hide()  // Hide it initially
     .ajaxStart(function() {
