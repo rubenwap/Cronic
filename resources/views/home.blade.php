@@ -12,9 +12,7 @@
 $(document).ready(function() {
 
 
-
  $(".aaa").on("click", function(){
-     
            
 
      
@@ -125,7 +123,8 @@ $(document).ready(function() {
 ''+
 '<div class="form-group">'+
 ''+
-'{!! Form::checkbox('doctor', '1', '0', ['class' => 'checkbox', 'data-toggle'=>'toggle', 'data-onstyle'=>'success', 'id'=>'drcheck']) !!}'+
+'{!! Form::hidden('doctor', '0', ['type'=>'hidden', 'id'=>'drhelp'] ) !!}'+
+'{!! Form::checkbox('doctor', '1', false , ['class' => 'checkbox', 'data-toggle'=>'toggle', 'data-onstyle'=>'success', 'id'=>'drcheck']) !!}'+
 '{!!Form::label('doctor', 'Share with your doctor')!!}'+
 ' {!!Form::submit("Save Entry",  ['class'=>'btn btn-primary form-control record', 'id'=>'saveart'])!!}'+
 '  </div>'+
@@ -141,6 +140,9 @@ $(document).ready(function() {
   
   
 }); //cierre dialog
+    
+    
+
     
         $($('#myCarousel')[0]).on('slide.bs.carousel', function(ev) {
         var id = ev.relatedTarget.id;
@@ -177,19 +179,7 @@ $(document).ready(function() {
     
     
     
-    
-    
-     $('#drcheck').change(function() {
-      switch ($('#drcheck').prop('checked')) {
-        case true:
-        doctor = 1;
-        console.log(doctor);
-        break;
-        case false:
-        doctor = 0;
-        console.log(doctor);
-        break;
-    }
+
     
     
     var title = $('#title').val();
@@ -202,7 +192,14 @@ $(document).ready(function() {
      var form = $( '#fart' ).on( 'submit', function(e) {
    
         e.preventDefault(); 
-      
+  
+  if (document.getElementById("drcheck").checked) {
+document.getElementById("drhelp").parentNode.removeChild(document.getElementById("drhelp"))
+
+ }
+  
+  
+  
       $.ajax({
             type: "POST",
             url: '/articles/',
@@ -232,7 +229,7 @@ $(document).ready(function() {
 
     
     
-    }); 
+    
     
 $('#drcheck').bootstrapToggle();
 
@@ -310,6 +307,10 @@ jQuery('.timepicker').datetimepicker();
             eventmodal.modal('toggle');
            $('#confirmationEv').hide();
             $('#confirmationEv').show();
+            
+            
+            $($($('.minimize')[1]).parent().parent().children()[1]).slideDown('500');
+
 
    $.get('/oneweek', function(data){ 
              data = JSON.parse(data);
@@ -403,7 +404,6 @@ jQuery('.timepicker').datetimepicker();
 
               @if(Session::has('message')) <div class="alert alert-success"> {{Session::get('message')}} </div> @endif
 <div class="alert alert-success" style="display:none;" id="confirmationArt"> Entry successfully saved! </div>
-<div class="alert alert-success" style="display:none;" id="confirmationEv"> Event successfully saved! </div>
 
 
 
@@ -448,7 +448,8 @@ jQuery('.timepicker').datetimepicker();
   Your reminders for the next 7 days:
    <i class="fa fa-minus pull-right minimize" title="Minimize" aria-hidden="true"></i></div>
    <div class="panel-body" >
-  
+  <div class="alert alert-success" style="display:none;" id="confirmationEv"> Event successfully saved! </div>
+
   
 <ul id="levent">
     @foreach($events as $event)

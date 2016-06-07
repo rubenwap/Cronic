@@ -6,6 +6,7 @@
 $(document).ready(function() {
 
 
+
 $($($($('.minimize')[1]).parent().parent()).children()[1]).hide();
 $($($($('.minimize')[2]).parent().parent()).children()[1]).hide();
 $($($($('.minimize')[3]).parent().parent()).children()[1]).hide()

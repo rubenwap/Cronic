@@ -99,7 +99,7 @@
 </div>
 
 <div class="form-group">
-
+{!! Form::hidden('doctor', '0', ['type'=>'hidden', 'id'=>'drhelp'] ) !!}
 {!! Form::checkbox('doctor', '1', null, ['class' => 'checkbox', 'data-toggle'=>'toggle', 'data-onstyle'=>'success']) !!}
 {!!Form::label('doctor', 'Share with your doctor')!!}
  {!!Form::submit($submitBtn,  ['class'=>'btn btn-primary form-control record'])!!}
