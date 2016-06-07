@@ -57,12 +57,20 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li><a href="{{ url('/home') }}"><i class="fa fa-home fa-2x" aria-hidden="true" title="Home"></i><span class="mname"> Home</span></a></li>
+                                      @if (Auth::user()->isdoctor === "no")
+
                                         <li><a href="{{ url('/articles/create') }}"><i class="fa fa-plus-circle fa-2x" aria-hidden="true" title="Add Entry"></i><span class="mname"> Add Entry</span></a></li>
+@endif
                     <li><a href="{{ url('/events/create') }}"><i class="fa fa-calendar-plus-o fa-2x" aria-hidden="true" title="Add Event"></i><span class="mname"> Add Event</span> </a></li>
+                  @if (Auth::user()->isdoctor === "no")
 
                     <li><a href="{{ url('/articles') }}"><i class="fa fa-eye fa-2x" aria-hidden="true" title="View Entries"></i><span class="mname"> View Entries</span> </a></li>
+@endif
                     <li><a href="{{ url('/events') }}"><i class="fa fa-calendar fa-2x" aria-hidden="true" title="View Events"></i><span class="mname"> View Events</span> </a></li>
+                        @if (Auth::user()->isdoctor === "no")
+
                     <li><a href="{{ url('/progress') }}"><i class="fa fa-bar-chart fa-2x" aria-hidden="true" title="Progress"></i><span class="mname"> Progress</span> </a></li>
+@endif
                 </ul>
 
 
@@ -82,7 +90,10 @@
                             </a>
 
                             <ul class="dropdown-menu" role="menu">
+                                              @if (Auth::user()->isdoctor === "no")
+
                             <li><a href="{{ url('/settings') }}"><i class="fa fa-btn fa-cog"></i>Profile</a></li>
+                            @endif
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>

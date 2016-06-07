@@ -8,9 +8,10 @@
        <meta name="csrf-token" content="{{ csrf_token() }}" />
 
 
+                 
+
 <script>
 $(document).ready(function() {
-
 
  $(".aaa").on("click", function(){
            
@@ -392,14 +393,44 @@ jQuery('.timepicker').datetimepicker();
                   </script>
 
 
+                                @if (Auth::user()->isdoctor === "yes")
+<h2>Latest posts from your patients:</h2>
+
+  <article>
+                  <div class="container-fluid">
+
+                    <div class="row indexEntries">
+                 <div class="col-md-6" id="latestevents">
+
+	<a href="#">
+
+                    <h2 id="latesttitle">About the patient´s entries</h2>
+                    <p id="latestdate">Today at 15:30</br>
+                    <p id="latestbody">The functionality to allow doctor reviews has not been implemented. Latest five posts are supposed to appear in the front page, with the rest of entries available for search.</p>
+                </div>
+                     <div class="col-md-6">
+</a>
+                </div>
 
 
+                </div> 
+                </div> 
+                </article>
+                
+  
+
+
+
+@endif
+
+                  @if (Auth::user()->isdoctor === "no")
 
 
 <button type="button" class="btn btn-primary additions aaa">  <i class="fa fa-plus-circle fa-2x additionsicon" aria-hidden="true" title="Add Entry"></i>
  </button>
 <button type="button" class="btn btn-primary additions eaa">  <i class="fa fa-calendar-plus-o fa-2x additionsicon" aria-hidden="true" title="Add Event"></i>
  </button>
+
               <h2>Latest entry:</h2>
 
               @if(Session::has('message')) <div class="alert alert-success"> {{Session::get('message')}} </div> @endif
@@ -432,7 +463,7 @@ jQuery('.timepicker').datetimepicker();
                 </article>
 
                 @endforeach
-
+@endif
 
                 </div> <!-- panel body-->
                 
@@ -479,6 +510,9 @@ jQuery('.timepicker').datetimepicker();
          </div> <!-- col -->
           </div> <!-- row -->
           
+       
+                         @if (Auth::user()->isdoctor === "no")
+
           
         
                          <div class="row">
@@ -495,7 +529,7 @@ jQuery('.timepicker').datetimepicker();
           </div> <!-- row -->
         
 
-        
+        @endif
                                 
         
         

@@ -45,6 +45,16 @@ class HomeController extends Controller
 
     }
     
+    public function user_id_setting() {
+       
+        
+       $listsetting = Setting::where('doctor', Auth::user()->name . " " . Auth::user()->surname)->get();
+        return  $listsetting->toJson;
+        
+        
+    }
+    
+    
        public function latest() {
       $latest = Article::where('user_id', Auth::user()->id)->latest()->take(1)->get();
       
