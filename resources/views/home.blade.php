@@ -417,7 +417,6 @@ jQuery('.timepicker').datetimepicker();
                 </div> 
                 </article>
                 
-  
 
 
 
