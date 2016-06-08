@@ -436,9 +436,37 @@ jQuery('.timepicker').datetimepicker();
 <div class="alert alert-success" style="display:none;" id="confirmationArt"> Entry successfully saved! </div>
 
 
+@if (count($articles) < 1)
+             <article>
+                  <div class="container-fluid">
+
+                    <div class="row indexEntries">
+                 <div class="col-md-6" id="latestevents">
+
+	<a href="">
+
+                    <h2 id="latesttitle">No entries published yet...</h2>
+                    <p id="latestdate"></br>
+                    <p id="latestbody"></p>
+                </div>
+                     <div class="col-md-6">
+                    <span class="hiddenFeeling pull-right" ><span id="latestfeeling" class="textFeeling">1</span></span>
+</a>
+                </div>
+
+
+                </div> 
+                </div> 
+                </article>
+    
+    
+    
+    
+@endif
 
 
                 @foreach($articles as $article)
+                
                 <article>
                   <div class="container-fluid">
 
