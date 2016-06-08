@@ -1,3 +1,12 @@
+pre {
+    width: 100%;
+}
+
+#latesttitle, .panel-heading {
+    text-transform: uppercase;
+    font-family: 'Ubuntu Condensed', sans-serif;
+}
+
 .minimize:hover {
     color: #888888;
 }

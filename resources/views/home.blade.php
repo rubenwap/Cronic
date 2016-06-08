@@ -42,7 +42,7 @@ $(document).ready(function() {
 '  <!-- Wrapper for slides -->'+
 '  <div class="carousel-inner" role="listbox">'+
 '    <div class="item active" id="1">'+
-'      <img src="{{URL::to("images/ps1.jpg")}}" alt="no pain" width="160" height="120">'+
+'      <img src="{{URL::to("images/ps1.png")}}" alt="no pain" width="160" height="120">'+
 '      <div class="carousel-caption">'+
 '    <h3>NO PAIN</h3>'+
 ''+
@@ -50,7 +50,7 @@ $(document).ready(function() {
 '    </div>'+
 ''+
 '    <div class="item" id="2">'+
-'      <img src="{{URL::to("images/ps2.jpg")}}" alt="hurts a bit" width="160" height="120">'+
+'      <img src="{{URL::to("images/ps2.png")}}" alt="hurts a bit" width="160" height="120">'+
 '      <div class="carousel-caption">'+
 '    <h3>HURTS A BIT</h3>'+
 ''+
@@ -58,7 +58,7 @@ $(document).ready(function() {
 '    </div>'+
 ''+
 '    <div class="item" id="3">'+
-'      <img src="{{URL::to("images/ps3.jpg")}}" alt="hurts a little more" width="160" height="120">'+
+'      <img src="{{URL::to("images/ps3.png")}}" alt="hurts a little more" width="160" height="120">'+
 '      <div class="carousel-caption">'+
 '    <h3>HURTS A LITTLE MORE</h3>'+
 ''+
@@ -67,7 +67,7 @@ $(document).ready(function() {
 ''+
 ''+
 '    <div class="item" id="4">'+
-'      <img src="{{URL::to("images/ps4.jpg")}}" alt="hurts even more" width="160" height="120">'+
+'      <img src="{{URL::to("images/ps4.png")}}" alt="hurts even more" width="160" height="120">'+
 '      <div class="carousel-caption">'+
 '    <h3>HURTS EVEN MORE</h3>'+
 ''+
@@ -75,7 +75,7 @@ $(document).ready(function() {
 '    </div>'+
 ''+
 '    <div class="item" id="5">'+
-'      <img src="{{URL::to("images/ps5.jpg")}}" alt="hurts a lot" width="160" height="120">'+
+'      <img src="{{URL::to("images/ps5.png")}}" alt="hurts a lot" width="160" height="120">'+
 ''+
 '      <div class="carousel-caption">'+
 '    <h3>HURTS A LOT</h3>'+
@@ -84,7 +84,7 @@ $(document).ready(function() {
 '    </div>'+
 ''+
 '    <div class="item" id="6">'+
-'      <img src="{{URL::to("images/ps6.jpg")}}" alt="unbearable pain" width="160" height="120">'+
+'      <img src="{{URL::to("images/ps6.png")}}" alt="unbearable pain" width="160" height="120">'+
 '      <div class="carousel-caption">'+
 '    <h3>UNBEARABLE PAIN</h3>'+
 ''+
@@ -216,7 +216,7 @@ document.getElementById("drhelp").parentNode.removeChild(document.getElementById
              $('#latesttitle').text(data[0].title);
              $('#latestbody').text(data[0].body);
              $('#latestfeeling').text(data[0].feeling);
-            $($('.imgIndex')[0]).attr("src", "../images/ps"+data[0].feeling+".jpg")
+            $($('.imgIndex')[0]).attr("src", "../images/ps"+data[0].feeling+".png")
              $('#latestdate').text(moment(data[0].created_at).format('dddd Do MMMM H:mm'));
              
     });

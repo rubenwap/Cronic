@@ -12,6 +12,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css" rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu+Condensed' rel='stylesheet' type='text/css'>
     <link rel='stylesheet' href='https://code.jquery.com/ui/1.11.4/themes/cupertino/jquery-ui.css'/>
     <link rel='stylesheet' href='{{ URL::to('css/fullcalendar.css') }}' />
     <link rel='stylesheet' href='{{ URL::to('css/jquery.datetimepicker.css')}}' />

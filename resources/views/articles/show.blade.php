@@ -18,11 +18,12 @@
                   </div>
 
                   <div class="panel-body">
+                    <span class="hiddenFeeling" ><span class="textFeeling">{{$article->feeling}}</span></span>
 
-	<div class="body">{{$article->body}}</div>
   @include('articles.crud')
 
-  <span class="hiddenFeeling" ><span class="textFeeling">{{$article->feeling}}</span></span>
+	<div class="body"><pre>{{$article->body}}</pre></div>
+
 
 
 
