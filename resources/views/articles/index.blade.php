@@ -298,6 +298,7 @@ document.getElementById("drhelp").parentNode.removeChild(document.getElementById
             method: "PATCH",
             url: '/articles' + '/' + id,
             
+            /*
             data: {
                    
               "id": id,                 
@@ -308,8 +309,8 @@ document.getElementById("drhelp").parentNode.removeChild(document.getElementById
             "_token":token
             
         
-            },
-            
+            },*/
+            data: form.serialize(),
             
             success: function( msg ) {
             articlemodal.modal('toggle');
