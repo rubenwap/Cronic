@@ -44,7 +44,7 @@ $(document).ready(function() {
 '    <div class="item active" id="1">'+
 '      <img src="{{URL::to("images/ps1.png")}}" alt="no pain" width="160" height="120">'+
 '      <div class="carousel-caption">'+
-'    <h3>NO PAIN</h3>'+
+'    <h3 class="pull-right">NO PAIN</h3>'+
 ''+
 '  </div>'+
 '    </div>'+
@@ -52,7 +52,7 @@ $(document).ready(function() {
 '    <div class="item" id="2">'+
 '      <img src="{{URL::to("images/ps2.png")}}" alt="hurts a bit" width="160" height="120">'+
 '      <div class="carousel-caption">'+
-'    <h3>HURTS A BIT</h3>'+
+'    <h3 class="pull-right">HURTS A BIT</h3>'+
 ''+
 '  </div>'+
 '    </div>'+
@@ -60,7 +60,7 @@ $(document).ready(function() {
 '    <div class="item" id="3">'+
 '      <img src="{{URL::to("images/ps3.png")}}" alt="hurts a little more" width="160" height="120">'+
 '      <div class="carousel-caption">'+
-'    <h3>HURTS A LITTLE MORE</h3>'+
+'    <h3 class="pull-right">HURTS A LITTLE MORE</h3>'+
 ''+
 '  </div>'+
 '    </div>'+
@@ -69,7 +69,7 @@ $(document).ready(function() {
 '    <div class="item" id="4">'+
 '      <img src="{{URL::to("images/ps4.png")}}" alt="hurts even more" width="160" height="120">'+
 '      <div class="carousel-caption">'+
-'    <h3>HURTS EVEN MORE</h3>'+
+'    <h3 class="pull-right">HURTS EVEN MORE</h3>'+
 ''+
 '  </div>'+
 '    </div>'+
@@ -78,7 +78,7 @@ $(document).ready(function() {
 '      <img src="{{URL::to("images/ps5.png")}}" alt="hurts a lot" width="160" height="120">'+
 ''+
 '      <div class="carousel-caption">'+
-'    <h3>HURTS A LOT</h3>'+
+'    <h3 class="pull-right">HURTS A LOT</h3>'+
 ''+
 '  </div>'+
 '    </div>'+
@@ -86,7 +86,7 @@ $(document).ready(function() {
 '    <div class="item" id="6">'+
 '      <img src="{{URL::to("images/ps6.png")}}" alt="unbearable pain" width="160" height="120">'+
 '      <div class="carousel-caption">'+
-'    <h3>UNBEARABLE PAIN</h3>'+
+'    <h3 class="pull-right">UNBEARABLE PAIN</h3>'+
 ''+
 '  </div>'+
 '    </div>'+
@@ -203,7 +203,7 @@ document.getElementById("drhelp").parentNode.removeChild(document.getElementById
   
       $.ajax({
             type: "POST",
-            url: '/articles/',
+            url: '/articles',
             data: form.serialize(),
             success: function( msg ) {
             articlemodal.modal('toggle');
@@ -471,7 +471,7 @@ jQuery('.timepicker').datetimepicker();
                   <div class="container-fluid">
 
                     <div class="row indexEntries">
-                 <div class="col-md-6" id="latestevents">
+                 <div class="col-md-9" id="latestevents">
 
 	<a href="{{action('PagesController@show', [$article->id])}}">
 
@@ -479,8 +479,8 @@ jQuery('.timepicker').datetimepicker();
                     <p id="latestdate">{{$article->created_at->format('l dS F H:m')}}</br>
                     <p id="latestbody">{{str_limit($article->body,100)}}</p>
                 </div>
-                     <div class="col-md-6">
-                    <span class="hiddenFeeling pull-right" ><span id="latestfeeling" class="textFeeling">{{$article->feeling}}</span></span>
+                     <div class="col-md-3">
+                    <span class="hiddenFeeling pull-left" ><span id="latestfeeling" class="textFeeling">{{$article->feeling}}</span></span>
 </a>
                 </div>
 

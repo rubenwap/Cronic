@@ -27,7 +27,7 @@ document.getElementById("drhelp").parentNode.removeChild(document.getElementById
 </script>
 
 
-  <h2>{!! Auth::user()->name !!}, how do you feel?</h2>
+  <h2 id="ftitle">{!! Auth::user()->name !!}, how do you feel?</h2>
 
   {!!Form::open(['url' => 'articles'])!!}
 
