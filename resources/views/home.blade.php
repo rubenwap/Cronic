@@ -11,10 +11,24 @@
                  
 
 <script>
+
+
+
+
 $(document).ready(function() {
 
  $(".aaa").on("click", function(){
            
+
+$( document ).ajaxStart(function() {
+  $( "#loader" ).show();
+});
+
+
+$( document ).ajaxStop(function() {
+  $( "#loader" ).hide();
+});
+
 
      
    var articlemodal =  bootbox.dialog({
@@ -23,6 +37,7 @@ $(document).ready(function() {
                  
 
   '<h2>{!! Auth::user()->name !!}, how do you feel?</h2>'+
+  '<div id="loader" style="display:none;"></div>'+
 
   '{!!Form::open(["url" => "articles", "id"=>"fart"])!!}'+
   
@@ -250,12 +265,23 @@ $(document).ready(function() {
 
  $(".eaa").on("click", function(){
      
- 
+            
+
+$( document ).ajaxStart(function() {
+  $( "#loader" ).show();
+});
+
+
+$( document ).ajaxStop(function() {
+  $( "#loader" ).hide();
+});
+
      
    eventmodal =   bootbox.dialog({
   title: 'Register an event in your calendar',
   message:  
     '<div>'+
+    '<div id="loader" style="display:none;"></div>'+
     '{!!Form::open(["url" => "events", "id" => "fev"])!!}'+
 
 '<div class="form-group">'+

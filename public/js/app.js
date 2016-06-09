@@ -1,83 +1,77 @@
-
-
-
-
-
 $(document).ready(function() {
 
 
 
-$($($($('.minimize')[1]).parent().parent()).children()[1]).hide();
-$($($($('.minimize')[2]).parent().parent()).children()[1]).hide();
-$($($($('.minimize')[3]).parent().parent()).children()[1]).hide()
+    $($($($('.minimize')[1]).parent().parent()).children()[1]).hide();
+    $($($($('.minimize')[2]).parent().parent()).children()[1]).hide();
+    $($($($('.minimize')[3]).parent().parent()).children()[1]).hide()
 
-$($('.minimize')[1]).toggleClass('fa-minus fa-plus');
-$($('.minimize')[2]).toggleClass('fa-minus fa-plus');
-$($('.minimize')[3]).toggleClass('fa-minus fa-plus');
-
-
-$('.minimize').on("click", function(){
-$($(this).parent().parent().children()[1]).slideToggle('500');
-$(this).toggleClass('fa-minus fa-plus');
- 
-});
+    $($('.minimize')[1]).toggleClass('fa-minus fa-plus');
+    $($('.minimize')[2]).toggleClass('fa-minus fa-plus');
+    $($('.minimize')[3]).toggleClass('fa-minus fa-plus');
 
 
+    $('.minimize').on("click", function() {
+        $($(this).parent().parent().children()[1]).slideToggle('500');
+        $(this).toggleClass('fa-minus fa-plus');
+
+    });
 
 
 
-$('#bprogress').on("click", function(){
-    
-    $('#panelprogress').toggle();
-    
-});
-
-$('#loader')
-    .hide()  // Hide it initially
-    .ajaxStart(function() {
-        $(this).show();
-    })
-    .ajaxStop(function() {
-        $(this).hide();
-    })
-;
 
 
+    $('#bprogress').on("click", function() {
 
-  $( "#allergensselect" ).select2({
-      theme: "bootstrap",
-      tags: true
-  }).on('change', function() {
+        $('#panelprogress').toggle();
 
-  $('#allergies').val($("#allergensselect option:selected").text());
-  });
+    });
 
-  $( "#doctorsselect" ).select2({
-      theme: "bootstrap",
-      tags: true
-  }).on('change', function() {
+    $('#loader')
+        .hide() // Hide it initially
+        .ajaxStart(function() {
+            $(this).show();
+        })
+        .ajaxStop(function() {
+            $(this).hide();
+        });
 
-  $('#doctor').val($("#doctorsselect option:selected").text());
-  });
 
+
+    $("#allergensselect").select2({
+        theme: "bootstrap",
+        tags: true
+    }).on('change', function() {
+
+        $('#allergies').val($("#allergensselect option:selected").text());
+    });
+
+    $("#doctorsselect").select2({
+        theme: "bootstrap",
+        tags: true
+    }).on('change', function() {
+
+        $('#doctor').val($("#doctorsselect option:selected").text());
+    });
 
 
 
 
 
 
-jQuery('#birth').datetimepicker({
 
-  timepicker:false,
-  format:'Y-m-d'
-});
+    jQuery('#birth').datetimepicker({
+
+        timepicker: false,
+        format: 'Y-m-d'
+    });
 
 
     $('#myCarousel').on('slide.bs.carousel', function(ev) {
         var id = ev.relatedTarget.id;
 
-//This gives numerical values to the pain according to the chose graph
-// f is the id for the hidden text field in the form
+        //This gives numerical values to the pain according to the chose graph
+        // f is the id for the hidden text field in the form
         switch (id) {
             case "1":
                 $('#f').val(1);
@@ -101,8 +95,8 @@ jQuery('#birth').datetimepicker({
         }
     })
 
-// The following populates the faces in the view article mode
-// TODO replace with divs in the blade Page
+    // The following populates the faces in the view article mode
+    // TODO replace with divs in the blade Page
 
     for (var i = 0; i <= $('.hiddenFeeling').length; i++) {
 
@@ -176,28 +170,28 @@ jQuery('#birth').datetimepicker({
         });
     }
 
-if ($('#calendar')) {
+    if ($('#calendar')) {
 
-  $('#calendar').fullCalendar({
-        // put your options and callbacks here
-        events: '../calfeed',
-        header: {
-        left: 'prev,next today',
-        center: 'title',
-        right: 'month,agendaWeek,agendaDay'
-    },
-
-
-    firstDay: 1,
-
-    defaultView: 'month'
-
-    })
-
-    jQuery('.timepicker').datetimepicker();
+        $('#calendar').fullCalendar({
+            // put your options and callbacks here
+            events: '../calfeed',
+            header: {
+                left: 'prev,next today',
+                center: 'title',
+                right: 'month,agendaWeek,agendaDay'
+            },
 
 
-}
+            firstDay: 1,
+
+            defaultView: 'month'
+
+        })
+
+        jQuery('.timepicker').datetimepicker();
+
+
+    }
 
 
 });

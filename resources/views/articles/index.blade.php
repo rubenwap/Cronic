@@ -22,6 +22,8 @@
                     <div class="alert alert-success" id="cedit" style="display:none;">Entry edited successfully</div>
 
                     <div class="table-responsive">
+                        <div id="loader" style="display:none;"></div>
+
                       <table class="table">
                         <thead><th>Date</th>
 <th>Title</th>
@@ -31,28 +33,40 @@
 <script>
 
 $(document).ready(function() {
-     
-    
+
+
     var title = "{{$article->title}}";
     var body = "{{json_encode($article->body)}}";
     var feeling = "{{$article->feeling}}";
     var token = $('meta[name="csrf-token"]').attr('content');
- 
+
   $('#{{$article->id}}.fdel').on('click', function(e) {
+
+
+
+$( document ).ajaxStart(function() {
+  $( "#loader" ).show();
+});
+
+
+$( document ).ajaxStop(function() {
+  $( "#loader" ).hide();
+});
+
     //var inputData = $('#formDeleteProduct').serialize();
 
     $.ajax({
         url: '/articles' + '/' + {{$article->id}},
          type:'post',
-       
+
         data: {
-          
-            "_method": "delete",          
-            "title": title, 
-            "body": body, 
+
+            "_method": "delete",
+            "title": title,
+            "body": body,
             "feeling": feeling,
             "_token":token
-            
+
         },
         success: function( message ) {
             if ( message.status === 'success' ) {
@@ -71,23 +85,33 @@ $(document).ready(function() {
 
     return false;
 });
-    
-    
+
+
         var doctor;
           var id;
     var title;
     var body;
     var feeling;
-    
+
 
   $('#{{$article->id}}.fedit').on('click', function(e) {
     //var inputData = $('#formDeleteProduct').serialize();
- 
 
- 
- 
 
-          $.get('/articles/'+ {{$article->id}} +'/edit', function(data){ 
+
+$( document ).ajaxStart(function() {
+  $( "#loader" ).show();
+});
+
+
+$( document ).ajaxStop(function() {
+  $( "#loader" ).hide();
+});
+
+
+
+
+          $.get('/articles/'+ {{$article->id}} +'/edit', function(data){
              data = JSON.parse(data);
              console.log(data);
              id = data.id;
@@ -105,8 +129,8 @@ $(document).ready(function() {
      if (doctor === 1) {
          $('#drcheck').prop('checked', true).change();
      }
-    
-    
+
+
     $('#drcheck').change(function() {
       switch ($('#drcheck').prop('checked')) {
         case true:
@@ -115,26 +139,27 @@ document.getElementById("drcheck").value = 1;
         break;
         case false:
         doctor = 0;
-        
+
         break;
     }
      console.log (doctor);
     });
-    
-    
-             
+
+
+
     });
-    
+
        var articlemodal =  bootbox.dialog({
   title: 'Today is {{date("l")}} the {{date("dS")}} of {{date("F Y")}}',
-  message:  
-                 
+  message:
+
 
   '<h2>{!! Auth::user()->name !!}, how do you feel?</h2>'+
+    '<div id="loader" style="display:none;"></div>'+
 
   '{!!Form::open(["url" => "articles"])!!}'+
-  
-             
+
+
 
 '<div id="myCarousel" class="carousel slide" data-interval="false" data-ride="carousel"> '+
 '  <!-- Indicators -->'+
@@ -245,12 +270,12 @@ document.getElementById("drcheck").value = 1;
 '@include("errors.list")'+
 
 '</div>',
-  
-  
-  
+
+
+
 }); //cierre dialog
 
- 
+
     $($('#myCarousel')[0]).on('slide.bs.carousel', function(ev) {
         var id = ev.relatedTarget.id;
 
@@ -277,93 +302,93 @@ document.getElementById("drcheck").value = 1;
                 break;
 
         }
-        
-       
-      
-        
-        
+
+
+
+
+
     });
- 
- 
+
+
        var form = $( 'form' ).on( 'submit', function(e) {
-        e.preventDefault(); 
+        e.preventDefault();
       console.log($('#f').val());
-      
+
       if (document.getElementById("drcheck").checked) {
 document.getElementById("drhelp").parentNode.removeChild(document.getElementById("drhelp"));
 
  }
-      
-      
+
+
       $.ajax({
             type: "POST",
             method: "PATCH",
             url: '/articles' + '/' + id,
-            
+
             /*
             data: {
-                   
-              "id": id,                 
-            "title": title, 
-            "body": body, 
+
+              "id": id,
+            "title": title,
+            "body": body,
             "feeling": $('#f').val(),
             "doctor": doctor,
             "_token":token
-            
-        
+
+
             },*/
             data: form.serialize(),
-            
+
             success: function( msg ) {
             articlemodal.modal('toggle');
            $('#cedit').hide();
             $('#cedit').show();
-          
-             $.get('/articlefeed', function(data){ 
+
+             $.get('/articlefeed', function(data){
              data = JSON.parse(data);
              console.log(data);
              console.log(data.data[0].id);
-             
-            
-             
+
+
+
              for (var i= 0; i< document.getElementsByTagName("tbody")[0].getElementsByTagName("tr").length; i++) {
-                 
+
                document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[i].getElementsByTagName("td")[0].getElementsByTagName("a")[0].innerHTML = moment(data.data[i].created_at).format('DD-MM-YY');
                document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[i].getElementsByTagName("td")[1].getElementsByTagName("a")[0].innerHTML = data.data[i].title;
                document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[i].getElementsByTagName("td")[2].getElementsByTagName("form")[0].id = data.data[i].id;
                document.getElementsByTagName("tbody")[0].getElementsByTagName("tr")[i].getElementsByTagName("td")[2].getElementsByTagName("form")[1].id = data.data[i].id;
-                                             
-              
+
+
              }
-             
-             
-             
+
+
+
     });
-   
-   
-         
-       
-       
+
+
+
+
+
             }
         });
    });
-    
-    
-    
-    
 
-        
+
+
+
+
+
     $('#drcheck').bootstrapToggle();
-     
-    
 
-    
+
+
+
 
     return false;
 });
-    
 
-    
+
+
     });
 </script>
 

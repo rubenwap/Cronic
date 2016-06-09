@@ -19,6 +19,8 @@
                       <h2>Your events <a href="{{ url('/events/create') }}"></a>
 </h2>
                       <div class="table-responsive">
+                      <div id="loader" style="display:none;"></div>
+
                         <table class="table">
                           <thead><th>Start Date</th><th>End Date</th>
                     <th>Title</th>
@@ -37,6 +39,16 @@ $(document).ready(function() {
  
   $('#{{$event->id}}.fdel').on('click', function(e) {
     //var inputData = $('#formDeleteProduct').serialize();
+          
+
+$( document ).ajaxStart(function() {
+  $( "#loader" ).show();
+});
+
+
+$( document ).ajaxStop(function() {
+  $( "#loader" ).hide();
+});
 
    
 
@@ -74,6 +86,19 @@ $(document).ready(function() {
     
   $('#{{$event->id}}.fedit').on('click', function(e) {
     //var inputData = $('#formDeleteProduct').serialize();
+    
+              
+
+$( document ).ajaxStart(function() {
+  $( "#loader" ).show();
+});
+
+
+$( document ).ajaxStop(function() {
+  $( "#loader" ).hide();
+});
+
+    
     var id;
     var title;
     var start;
@@ -98,6 +123,8 @@ $(document).ready(function() {
   title: 'Register an event in your calendar',
   message:  
     '<div>'+
+        '<div id="loader" style="display:none;"></div>'+
+
     '{!!Form::open(["url" => "events"])!!}'+
 
 '<div class="form-group">'+
