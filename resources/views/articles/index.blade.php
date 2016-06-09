@@ -111,9 +111,11 @@ $(document).ready(function() {
       switch ($('#drcheck').prop('checked')) {
         case true:
         doctor = 1;
+document.getElementById("drcheck").value = 1;
         break;
         case false:
         doctor = 0;
+        
         break;
     }
      console.log (doctor);
@@ -231,7 +233,7 @@ $(document).ready(function() {
 '<div class="form-group">'+
 ''+
 '{!! Form::hidden('doctor', '0', ['type'=>'hidden', 'id'=>'drhelp'] ) !!}'+
-'{!! Form::checkbox('doctor', '1', '0', ['class' => 'checkbox', 'data-toggle'=>'toggle', 'data-onstyle'=>'success', 'id'=>'drcheck']) !!}'+
+'{!! Form::checkbox('doctor', '1', false, ['class' => 'checkbox', 'data-toggle'=>'toggle', 'data-onstyle'=>'success', 'id'=>'drcheck']) !!}'+
 '{!!Form::label('doctor', 'Share with your doctor')!!}'+
 ' {!!Form::submit("Save Entry",  ['class'=>'btn btn-primary form-control record', 'id'=>'saveart'])!!}'+
 '  </div>'+
