@@ -128,7 +128,6 @@
 <script src="{{ URL::to('js/bootbox.min.js')}}"></script>
 
 <script src="{{ URL::to('js/app.js') }}"></script>
-<script src="{{ URL::to('js/ajax.js') }}"></script>
 
 
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}

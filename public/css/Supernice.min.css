@@ -224,7 +224,7 @@ textarea:focus {
 .imgIndex {
     margin-bottom: 2em;
 }
-@media (min-width: 768px) {
+@media (min-width: 945px) {
     .mname {
         display: none;
     }
