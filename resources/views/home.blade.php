@@ -302,7 +302,7 @@ jQuery('.timepicker').datetimepicker();
       
       $.ajax({
             type: "POST",
-            url: '/events/',
+            url: '/events',
             data: form.serialize(),
             success: function( msg ) {
             eventmodal.modal('toggle');

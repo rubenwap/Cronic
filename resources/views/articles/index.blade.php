@@ -42,7 +42,7 @@ $(document).ready(function() {
     //var inputData = $('#formDeleteProduct').serialize();
 
     $.ajax({
-        url: '/articles/' + {{$article->id}},
+        url: '/articles' + '/' + {{$article->id}},
          type:'post',
        
         data: {
@@ -296,7 +296,7 @@ document.getElementById("drhelp").parentNode.removeChild(document.getElementById
       $.ajax({
             type: "POST",
             method: "PATCH",
-            url: '/articles/' + id,
+            url: '/articles' + '/' + id,
             
             data: {
                    

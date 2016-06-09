@@ -41,7 +41,7 @@ $(document).ready(function() {
    
 
     $.ajax({
-        url: '/events/' + {{$event->id}},
+        url: '/events' + '/' + {{$event->id}},
          type:'post',
        
         data: {
@@ -142,7 +142,7 @@ jQuery('.timepicker').datetimepicker();
       $.ajax({
             type: "POST",
             method: "PATCH",
-            url: '/events/' + id,
+            url: '/events' + '/' + id,
             data: form.serialize(),
             success: function( msg ) {
             eventmodal.modal('toggle');
