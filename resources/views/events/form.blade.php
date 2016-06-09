@@ -1,19 +1,19 @@
 
                       <div class="form-group">
 
-                          {!!Form::label('title', 'What do you need to do? ')!!}
+                          {!!Form::label('title', 'What do you need? ')!!}
                           {!!Form::text('title', null, ['class'=>'form-control'])!!}
                       </div>
 
                       <div class="form-group">
 
-                          {!!Form::label('start', 'When do you need to start it? ')!!}
+                          {!!Form::label('start', 'Start date: ')!!}
                           {!!Form::text('start', null, ['class'=>'form-control timepicker'])!!}
                       </div>
 
                       <div class="form-group">
 
-                          {!!Form::label('end', 'When do you need to end it? ')!!}
+                          {!!Form::label('end', 'End date: ')!!}
                           {!!Form::text('end', null, ['class'=>'form-control timepicker'])!!}
                       </div>
 
