@@ -22,7 +22,7 @@
 
   @include('articles.crud')
 
-	<div class="body"><pre>{{$article->body}}</pre></div>
+	<div class="body">{{$article->body}}</div>
 
 
 
